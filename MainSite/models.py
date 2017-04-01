@@ -28,7 +28,6 @@ class Harmonogram_Zawodow(models.Model):
 
 class Harmonogram_Startow(models.Model):
 	IdHS = models.AutoField(primary_key=True)
-	IdZawody = models.ForeignKey(Zawody, on_delete=models.CASCADE)
 	Opis = models.CharField(max_length=256)
 	Data = models.DateTimeField(default=timezone.now)
 	Czas = models.DateTimeField(default=timezone.now) #Zdefiniować co oznacza czas
@@ -67,3 +66,8 @@ class Zawodnik(models.Model):
 class Zespol_Zawody(models.Model):
 	IdZ_0 = models.ForeignKey(Zespol,on_delete=models.CASCADE)
 	IdZawody = models.ForeignKey(Zawody, on_delete=models.CASCADE)
+	
+class Harmonogram_Zespol(models.Model):
+	IdZ_0 = models.ForeignKey(Harmonogram_Startow,on_delete=models.CASCADE)
+	IdZawody = models.ForeignKey(Zespol, on_delete=models.CASCADE)
+	Wyniki = models.CharField(max_length = 30)
