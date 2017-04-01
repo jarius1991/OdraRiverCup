@@ -81,6 +81,7 @@ class Zawodnik(models.Model):
 class Zespol_Zawody(models.Model):
 	IdZ_0 = models.ForeignKey(Zespol,on_delete=models.CASCADE)
 	IdZawody = models.ForeignKey(Zawody, on_delete=models.CASCADE)
+<<<<<<< HEAD
 
 class Wyniki_Zawodow(models.Model):
 	IdWynikow =  models.AutoField(primary_key=True)
@@ -124,3 +125,4 @@ class Artykul(models.Model):
 class Harmonogram_Zespol(models.Model):
 	IdZ_0 = models.ForeignKey(Harmonogram_Startow,on_delete=models.CASCADE)
 	IdZawody = models.ForeignKey(Zespol, on_delete=models.CASCADE)
+
