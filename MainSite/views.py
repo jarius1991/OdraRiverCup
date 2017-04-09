@@ -3,34 +3,29 @@ from django.utils import translation
 from django.utils.translation import LANGUAGE_SESSION_KEY
 from .models import *
 def Aktualnosci(request):
-	language = 'pl'
 	artykuly = Artykul.objects.all()
-	return render(request, 'OdraRiverCup/Aktualnosci.html', {'language':language,'artykuly':artykuly})
+	return render(request, 'OdraRiverCup/Aktualnosci.html', {'artykuly':artykuly})
 
 def Harmonogram(request):
-	language = 'pl'
-	print(language)
-	return render(request, 'OdraRiverCup/Harmonogram.html', {'language':language})
+
+	return render(request, 'OdraRiverCup/Harmonogram.html', {})
 
 def Partnerzy(request):
-	language = 'pl'
-	return render(request, 'OdraRiverCup/Partnerzy.html', {'language':language})
+	return render(request, 'OdraRiverCup/Partnerzy.html', {})
 
 def Kontakt(request):
-	language = 'pl'
-	return render(request, 'OdraRiverCup/Kontakt.html', {'language':language})
+	return render(request, 'OdraRiverCup/Kontakt.html', {})
 
 def Galeria(request):
-	language = 'pl'
-	return render(request, 'OdraRiverCup/Galeria.html', {'language':language})
+	galeria = Galeria.objects.all()
+	return render(request, 'OdraRiverCup/Galeria.html', {'galeria':galeria})
 
 def Wyniki(request):
-	language = 'pl'
-	return render(request, 'OdraRiverCup/Wyniki.html', {'language':language})
+	wyniki = Wyniki_Zawodow.objects.all()
+	return render(request, 'OdraRiverCup/Wyniki.html', {'wyniki':wyniki})
 
 def Loggin(request):
-	language = 'pl'
-	return render(request, 'OdraRiverCup/Logowanie.html', {'language':language})
+	return render(request, 'OdraRiverCup/Logowanie.html', {})
 
 def setPolski(request):
 	request.session[LANGUAGE_SESSION_KEY] = 'pl'

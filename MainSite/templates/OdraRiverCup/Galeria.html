@@ -1,9 +1,14 @@
 {% extends 'OdraRiverCup/base.html' %} 
 <html>
-  <head>
-
-   
-
-    
-  </body>
+  <head>Galeria</head>
+  {% block content %}
+  <body>
+	{% for gal in galeria %} 
+      {% if forloop.counter < 6 %}
+           <img src="{{gal.Zdjecie}}" style="width:104px;height:142px;">
+    	{% endif %} 
+  {% endfor %}
+    </body>
+  {% endblock %}
+  
 </html>

@@ -1,13 +1,7 @@
 {% extends 'OdraRiverCup/base.html' %} 
 <html>
+{% block content %}
   <head>
-
-   	{% for artykul in artykuly %} 
-          {% if forloop.counter < 6 %}
-          <h4>{{artykul.tytul}}</h4>
-          <h3>{{artykul.Zamieszczenie}}</h3>
-          <h2>{{artykul.tresc}}</h2>
-    	{% endif %} 
-    {% endfor %}
   </body>
+  {% endblock %}
 </html>

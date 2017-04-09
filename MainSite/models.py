@@ -16,6 +16,18 @@ class Zawody(models.Model):
     def __str__(self):
         return self.Nazwa
 
+class Artykul(models.Model):
+    IdArtykul =  models.AutoField(primary_key=True)
+    IdAdmin =  models.ForeignKey('auth.User')
+    tytul = models.CharField(max_length = 30)
+    tresc = models.CharField(max_length = 1000)
+
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()
+
+    def __str__(self):
+        return self.tytul
 
 class Harmonogram_Zawodow(models.Model):
     IdH = models.AutoField(primary_key=True)
@@ -28,7 +40,7 @@ class Harmonogram_Zawodow(models.Model):
         self.save()
 
     def __str__(self):
-        return self.IdZawody
+        return self.Opis
 
 
 class Harmonogram_Startow(models.Model):
@@ -43,7 +55,7 @@ class Harmonogram_Startow(models.Model):
         self.save()
 
     def __str__(self):
-        return self.IdZawody
+        return self.Opis
 
 
 class Adres(models.Model):
@@ -73,12 +85,6 @@ class UserProfile(models.Model):
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         UserProfile.objects.create(user=instance)
-
-
-@receiver(post_save, sender=User)
-def save_user_profile(sender, instance, **kwargs):
-    instance.profile.save()
-
 
 class Zespol(models.Model):
     IdZ = models.AutoField(primary_key=True)
@@ -112,7 +118,6 @@ class Zawodnik(models.Model):
 class Zespol_Zawody(models.Model):
     IdZ_0 = models.ForeignKey(Zespol,on_delete=models.CASCADE)
     IdZawody = models.ForeignKey(Zawody, on_delete=models.CASCADE)
-# <<<<<<< HEAD
 
 
 class Wyniki_Zawodow(models.Model):
@@ -140,22 +145,6 @@ class Galeria(models.Model):
 
     def __str__(self):
         return self.IdZdjecia
-
-
-class Artykul(models.Model):
-    IdArtykul =  models.AutoField(primary_key=True)
-    IdAdmin =  models.ForeignKey('auth.User')
-    tytul = models.CharField(max_length = 30)
-    tresc = models.CharField(max_length = 1000)
-    Zamieszczenie = models.DateTimeField(default=timezone.now)
-
-    def publish(self):
-        self.published_date = timezone.now()
-        self.save()
-
-    def __str__(self):
-        return self.tytul
-
 
 class Harmonogram_Zespol(models.Model):
     IdZ_0 = models.ForeignKey(Harmonogram_Startow,on_delete=models.CASCADE)

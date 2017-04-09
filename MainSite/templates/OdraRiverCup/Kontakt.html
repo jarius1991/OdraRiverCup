@@ -1,9 +1,17 @@
 {% extends 'OdraRiverCup/base.html' %} 
 <html>
-  <head>
-
-   
-
+  <head>Dane kontaktowe</head>
+{% block content %}
+   <body>
+  <h3>Kontakt</h3>
+  <h2>Imie</h2>
+  <h2>email</h2>
+  <h2>telefon</h2>
     
-  </body>
+   Temat name:<br>
+  <input type="text" name="topic"><br>
+<p id = "navar">Treść</p>
+    <input type="email" class="form-control" id="nav-input" name="q" size="21" maxlength="120" value = {{em}}>
+    <br></body>
+  {% endblock %}
 </html>

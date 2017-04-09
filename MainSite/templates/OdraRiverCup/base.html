@@ -1,17 +1,12 @@
 {% load i18n %}
-{% load staticfiles %}
-
-<html>
-  <head>
-
-    <title>{% block title %}{% endblock %}</title>
-  </head>
-  <body>
+<body>
     <div id="header">
       <h1><a href ="/"><b>Odra River Cup</b></a></h1>
     </div>
-
-    <table style="width:100%">
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                        <table style="width:100%">
   <tr>  
 
     <form class="navbar-form navbar-left" method="get" action="/">
@@ -38,12 +33,17 @@
 
   </tr>
   </table>
-    <form class="navbar-form navbar-left" method="get" action="/en">
+   <form class="navbar-form navbar-left" method="get" action="/en">
           <button id = "englang" type="submit" class="btn btn-default">Angielski!</button>
     </form>
     <form class="navbar-form navbar-left" method="get" action="/pl">
           <button id = "englang" type="submit" class="btn btn-default">Polski!</button>
     </form>
     
-  </body>
-</html>
+            {% block content %}
+
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>

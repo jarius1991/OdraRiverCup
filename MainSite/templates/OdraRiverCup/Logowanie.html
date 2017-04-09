@@ -1,9 +1,76 @@
 {% extends 'OdraRiverCup/base.html' %} 
 <html>
-  <head>
 
-   
+   <head>Galeria</head>
+  {% block content %}
+  <body>
+	<div class="page-header" style="margin-top:5px;">
+        <h1>Logowanie</h1>
+    </div>
+    <form id="login_form" method="post" action="/logowanie/">
+        {% csrf_token %}
+        <div class="form-group">
+            <div  style="margin-left: auto;margin-right: auto; max-width: 400px;">
+                <label for="login-input">Login:</label>
+                <input type="text" name="username" id="login-input" value="" size="50" placeholder="login" />
+            </div>
+        </div>
+        <div class="form-group" style="margin-left: auto;margin-right: auto;">
+            <div  style="margin-left: auto;margin-right: auto; max-width: 400px;">
+                <label for="password-input">Hasło:</label>
+                <input type="password" name="password" id="password-input" value="" size="50" placeholder="haslo" />
+            </div>
+        </div>
 
-    
-  </body>
+        <div  style="margin-left: auto;margin-right: auto; max-width: 372px;">
+            <button type="submit" class="btn btn-default" style="float:right;">Zaloguj się</button>
+            <div style="clear:both"></div>
+        </div>
+    </form>
+
+
+
+    <div class="thumbnail formt" id="logowanie">
+    {% if registered %}
+        <strong>Dzięki za rejestrację!</strong>
+        <a href="/logowanie/">Przejdź do logowania</a><br />
+    {% else %}
+        <div class="page-header" style="margin-top:5px;">
+            <h1>Rejestracja</h1>
+        </div>
+        {% if exist %}
+            <strong style="color: red; margin-left: 44px;">Użytkownik już istnieje!</strong>
+        {% endif %}
+        <form id="user_form" method="post" action="/register/" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <div  style="margin-left: auto;margin-right: auto; max-width: 400px;">
+                    <label for="login-input" style="margin-right: 38px;">Login:</label>
+                   <input type="text" value="">
+                </div>
+            </div>
+            <div class="form-group" style="margin-left: auto;margin-right: auto;">
+                <div  style="margin-left: auto;margin-right: auto; max-width: 400px;">
+                    <label for="password-input" style="margin-right: 38px;">Hasło:</label>
+                    <input type="text" value="">
+                </div>
+            </div>
+            <div class="form-group" style="margin-left: auto;margin-right: auto;">
+                <div  style="margin-left: auto;margin-right: auto; max-width: 400px;">
+                    <label for="password-input">Podaj email:</label>
+                    <input type="text" value="">
+                </div>
+            </div>
+
+            <div  style="margin-left: auto;margin-right: auto; max-width: 372px;">
+                <button type="submit" class="btn btn-default" style="float:right;">Zarejestruj się</button>
+                <div style="clear:both"></div>
+            </div>
+        </form>
+    {% endif %}
+</div>
+    </body>
+  {% endblock %}
+
+
 </html>
