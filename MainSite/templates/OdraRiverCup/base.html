@@ -1,4 +1,6 @@
+{% load i18n %}
 {% load staticfiles %}
+
 <html>
   <head>
 
@@ -10,55 +12,30 @@
     </div>
 
     <table style="width:100%">
-  <tr>
-  {% if language == "pl" %}
+  <tr>  
 
     <form class="navbar-form navbar-left" method="get" action="/">
-          <th><button id = "englang" type="submit" class="btn btn-default">Aktualności!</button></th>
+          <th><button id = "englang" type="submit" class="btn btn-default">{% trans 'Aktualności' %}</button></th>
     </form>
     <form class="navbar-form navbar-left" method="get" action="/Harmonogram">
-          <th><button id = "englang" type="submit" class="btn btn-default">Harmonogram!</button></th>
+          <th><button id = "englang" type="submit" class="btn btn-default">{% trans 'Harmonogram' %}</button></th>
     </form>
     <form class="navbar-form navbar-left" method="get" action="/Partnerzy">
-          <th><button id = "englang" type="submit" class="btn btn-default">Partnerzy/Patroni!</button></th>
+          <th><button id = "englang" type="submit" class="btn btn-default">{% trans 'Partnerzy/Patroni' %}</button></th>
     </form>
     <form class="navbar-form navbar-left" method="get" action="/Kontakt">
-          <th><button id = "englang" type="submit" class="btn btn-default">Kontakt!</button></th>
+          <th><button id = "englang" type="submit" class="btn btn-default">{% trans 'Kontakt' %}</button></th>
     </form>
     <form class="navbar-form navbar-left" method="get" action="/Galeria">
-          <th><button id = "englang" type="submit" class="btn btn-default">Galeria!</button></th>
+          <th><button id = "englang" type="submit" class="btn btn-default">{% trans 'Galeria' %}</button></th>
     </form>
     <form class="navbar-form navbar-left" method="get" action="/Wyniki">
-          <th><button id = "englang" type="submit" class="btn btn-default">Wyniki!</button></th>
+          <th><button id = "englang" type="submit" class="btn btn-default">{% trans 'Wyniki' %}</button></th>
     </form>
     <form class="navbar-form navbar-left" method="get" action="/Loggin">
-          <th><button id = "englang" type="submit" class="btn btn-default">Logowanie!</button></th>
+          <th><button id = "englang" type="submit" class="btn btn-default">{% trans 'Logowanie' %}</button></th>
     </form>
-    {% endif %}
-    {% if language == "en" %}
 
-    <form class="navbar-form navbar-left" method="get" action="/">
-          <th><button id = "englang" type="submit" class="btn btn-default">Actual</button></th>
-    </form>
-    <form class="navbar-form navbar-left" method="get" action="/Harmonogram">
-          <th><button id = "englang" type="submit" class="btn btn-default">Schedule</button></th>
-    </form>
-    <form class="navbar-form navbar-left" method="get" action="/Partnerzy">
-          <th><button id = "englang" type="submit" class="btn btn-default">Partners/Patrons</button></th>
-    </form>
-    <form class="navbar-form navbar-left" method="get" action="/Kontakt">
-          <th><button id = "englang" type="submit" class="btn btn-default">Contact</button></th>
-    </form>
-    <form class="navbar-form navbar-left" method="get" action="/Galeria">
-          <th><button id = "englang" type="submit" class="btn btn-default">Gallery</button></th>
-    </form>
-    <form class="navbar-form navbar-left" method="get" action="/Wyniki">
-          <th><button id = "englang" type="submit" class="btn btn-default">Scores</button></th>
-    </form>
-    <form class="navbar-form navbar-left" method="get" action="/Loggin">
-          <th><button id = "englang" type="submit" class="btn btn-default">Log in</button></th>
-    </form>
-    {% endif %}
   </tr>
   </table>
     <form class="navbar-form navbar-left" method="get" action="/en">

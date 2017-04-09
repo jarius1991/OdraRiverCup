@@ -1,9 +1,11 @@
 from django.shortcuts import render
+from django.utils import translation
 from django.utils.translation import LANGUAGE_SESSION_KEY
-
+from .models import *
 def Aktualnosci(request):
 	language = 'pl'
-	return render(request, 'OdraRiverCup/Aktualnosci.html', {'language':language})
+	artykuly = Artykul.objects.all()
+	return render(request, 'OdraRiverCup/Aktualnosci.html', {'language':language,'artykuly':artykuly})
 
 def Harmonogram(request):
 	language = 'pl'
