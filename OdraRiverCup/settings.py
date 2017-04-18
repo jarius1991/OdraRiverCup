@@ -1,3 +1,4 @@
+from django.utils.translation import ugettext_lazy as _
 """
 Django settings for OdraRiverCup project.
 
@@ -41,8 +42,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -50,6 +51,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+LANGUAGE_COOKIE_NAME = 'language'
 
 ROOT_URLCONF = 'OdraRiverCup.urls'
 
@@ -64,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.i18n',
             ],
         },
     },
@@ -105,7 +109,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pl'
+
+LANGUAGES = (
+    ('en', _('English')),
+    ('pl', _('Polish')),
+)
 
 TIME_ZONE = 'Europe/Warsaw'
 
@@ -124,5 +133,5 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'public', 'static')
 
 LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'locale'),
+    os.path.join(BASE_DIR, 'MainSite/locale'),
 )
