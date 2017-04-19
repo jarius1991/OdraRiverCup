@@ -112,8 +112,9 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'pl'
 
 LANGUAGES = (
-    ('en', _('English')),
     ('pl', _('Polish')),
+    ('en', _('English')),
+
 )
 
 TIME_ZONE = 'Europe/Warsaw'

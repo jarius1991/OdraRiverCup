@@ -7,8 +7,8 @@ from django.dispatch import receiver
 
 
 class Zawody(models.Model):
-    IdZawody = models.AutoField(primary_key=True)
-    Nazwa = models.CharField(max_length=30)
+    IdZawody = models.AutoField(primary_key=True )
+    Nazwa = models.CharField(max_length=30, verbose_name="Nazwa zespołu")
 
     def publish(self):
         self.published_date = timezone.now()
@@ -16,12 +16,15 @@ class Zawody(models.Model):
 
     def __str__(self):
         return self.Nazwa
+    class Meta:
+
+        verbose_name_plural="Zawody"
 
 class Artykul(models.Model):
     IdArtykul =  models.AutoField(primary_key=True)
     IdAdmin =  models.ForeignKey('auth.User')
-    tytul = models.CharField(max_length = 30)
-    tresc = models.CharField(max_length = 1000)
+    tytul = models.CharField(max_length = 30, verbose_name="Tytuł")
+    tresc = models.CharField(max_length = 1000, verbose_name="Treść")#Rozwarzyć zamane na TextField -> lepsze wprowadzanie danych, inny rozkład
 
     def publish(self):
         self.published_date = timezone.now()
@@ -30,11 +33,15 @@ class Artykul(models.Model):
     def __str__(self):
         return self.tytul
 
+    class Meta:
+        #ordering = ('-published_date',)#jak przechowywana jest data publikacji? Według czego porządkujemy.
+        verbose_name_plural="Artykuły"
+
 class Harmonogram_Zawodow(models.Model):
-    IdH = models.AutoField(primary_key=True)
-    IdZawody = models.ForeignKey(Zawody, on_delete=models.CASCADE)
-    Opis = models.CharField(max_length=256)
-    Termin = models.DateTimeField(default=timezone.now)
+    IdH = models.AutoField(primary_key=True, verbose_name="Numer identyfikacyjny harmonogramu")
+    IdZawody = models.ForeignKey(Zawody, on_delete=models.CASCADE, verbose_name="Numer zawodów")
+    Opis = models.CharField(max_length=256, verbose_name="Opis wydarzenia")
+    Termin = models.DateTimeField(default=timezone.now, verbose_name="Termin wykonania")
 
     def publish(self):
         self.published_date = timezone.now()
@@ -43,12 +50,16 @@ class Harmonogram_Zawodow(models.Model):
     def __str__(self):
         return self.Opis
 
+    class Meta:
+
+        verbose_name_plural="Harmonogram Zawodów"
+
 
 class Harmonogram_Startow(models.Model):
     IdHS = models.AutoField(primary_key=True)
     Opis = models.CharField(max_length=256)
-    Data = models.DateTimeField(default=timezone.now)
-    # TODO: Zdefiniować co oznacza czas
+    Data = models.DateTimeField(default=timezone.now) #Dzień w którym odbywają się dane starty
+    # TODO: Zdefiniować co oznacza czas  -> godzina startu (pojednyczy bieg)
     Czas = models.DateTimeField(default=timezone.now)
 
     def publish(self):
@@ -59,13 +70,21 @@ class Harmonogram_Startow(models.Model):
         return self.Opis
 
 
+    class Meta:
+
+        verbose_name_plural="Harmonogram Startów"
+
+
 class Adres(models.Model):
     IdAdres = models.AutoField(primary_key=True)
     Ulica = models.CharField(max_length=255)
     Numer = models.CharField(max_length=30)
     Mieszkanie = models.CharField(max_length=30)
-    KodPocztowy = models.CharField(max_length=30)
-    Miejscowosc = models.CharField(max_length=255)
+    KodPocztowy = models.CharField(max_length=30, verbose_name="Kod Pocztowy")
+    Miejscowosc = models.CharField(max_length=255, verbose_name="Miejscowość")
+
+    class Meta:
+        verbose_name_plural="Adresy"
 
 
 class UserProfile(models.Model):
@@ -82,6 +101,7 @@ class UserProfile(models.Model):
         return self.user.username
 
 
+
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
@@ -90,8 +110,9 @@ def create_user_profile(sender, instance, created, **kwargs):
 class Zespol(models.Model):
     IdZ = models.AutoField(primary_key=True)
     IdU = models.ForeignKey('auth.User')
-    IdHS = models.ForeignKey(Harmonogram_Startow,on_delete=models.CASCADE)
+    IdHS = models.ForeignKey(Harmonogram_Startow,on_delete=models.CASCADE, verbose_name="Identyfikator startów")
     Nazwa = models.CharField(max_length=30)
+    #ToDo Określić wybór zespołów z okreslonego odgórnie zbioru
     Typ = models.CharField(max_length=30)
 
     def publish(self):
@@ -100,6 +121,11 @@ class Zespol(models.Model):
 
     def __str__(self):
         return self.Nazwa
+
+
+    class Meta:
+
+        verbose_name_plural="Zespoły"
 
 
 class Zawodnik(models.Model):
@@ -115,16 +141,24 @@ class Zawodnik(models.Model):
     def __str__(self):
         return self.Imie
 
+    class Meta:
+
+        verbose_name_plural="Zawodnicy"
+
 
 class Zespol_Zawody(models.Model):
-    IdZ_0 = models.ForeignKey(Zespol,on_delete=models.CASCADE)
-    IdZawody = models.ForeignKey(Zawody, on_delete=models.CASCADE)
+    IdZ_0 = models.ForeignKey(Zespol,on_delete=models.CASCADE, verbose_name="Identyfikator zespołu")
+    IdZawody = models.ForeignKey(Zawody, on_delete=models.CASCADE, verbose_name="Identyfikator zawodów")
+
+    class Meta:
+        verbose_name_plural="Zespoły w zawodach"
+
 
 
 class Wyniki_Zawodow(models.Model):
     IdWynikow =  models.AutoField(primary_key=True)
-    IdHs = models.ForeignKey(Harmonogram_Startow,on_delete=models.CASCADE)
-    IdZawody = models.ForeignKey(Zespol, on_delete=models.CASCADE)
+    IdHs = models.ForeignKey(Harmonogram_Startow,on_delete=models.CASCADE, verbose_name="Numer wyścigu")
+    IdZawody = models.ForeignKey(Zespol, on_delete=models.CASCADE, verbose_name="Identyfikator zawodów")
     Czas = models.DateTimeField(default=timezone.now)
 
     def publish(self):
@@ -133,6 +167,10 @@ class Wyniki_Zawodow(models.Model):
 
     def __str__(self):
         return self.IdWynikow
+
+    class Meta:
+
+        verbose_name_plural="Wyniki zawodów"
 
 
 class Galeria(models.Model):
@@ -147,6 +185,14 @@ class Galeria(models.Model):
     def __str__(self):
         return self.IdZdjecia
 
+    class Meta:
+
+        verbose_name_plural="Galeria"
+
 class Harmonogram_Zespol(models.Model):
-    IdZ_0 = models.ForeignKey(Harmonogram_Startow,on_delete=models.CASCADE)
-    IdZawody = models.ForeignKey(Zespol, on_delete=models.CASCADE)
+    IdZ_0 = models.ForeignKey(Harmonogram_Startow,on_delete=models.CASCADE, verbose_name="Identyfikator startu")
+    IdZawody = models.ForeignKey(Zespol, on_delete=models.CASCADE, verbose_name="Identyfikator zespołu")
+
+    class Meta:
+
+        verbose_name_plural="Harmonogram zespołów"
