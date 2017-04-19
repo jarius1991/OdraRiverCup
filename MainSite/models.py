@@ -90,8 +90,6 @@ class Adres(models.Model):
 class UserProfile(models.Model):
     # This line is required. Links UserProfile to a User model instance.
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-
-    # The additional attributes we wish to include.
     Uczelnia = models.CharField(max_length=255)
     Adres = models.ForeignKey(Adres, on_delete=models.CASCADE)
     Email = models.CharField(max_length=255)
@@ -99,7 +97,6 @@ class UserProfile(models.Model):
 
     def __unicode__(self):
         return self.user.username
-
 
 
 @receiver(post_save, sender=User)
@@ -110,9 +107,11 @@ def create_user_profile(sender, instance, created, **kwargs):
 class Zespol(models.Model):
     IdZ = models.AutoField(primary_key=True)
     IdU = models.ForeignKey('auth.User')
-    IdHS = models.ForeignKey(Harmonogram_Startow,on_delete=models.CASCADE, verbose_name="Identyfikator startów")
+    IdHS = models.ForeignKey(Harmonogram_Startow,
+                             on_delete=models.CASCADE,
+                             verbose_name="Identyfikator startów")
     Nazwa = models.CharField(max_length=30)
-    #ToDo Określić wybór zespołów z okreslonego odgórnie zbioru
+    # ToDo Określić wybór zespołów z okreslonego odgórnie zbioru
     Typ = models.CharField(max_length=30)
 
     def publish(self):
