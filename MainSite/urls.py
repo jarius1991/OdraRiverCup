@@ -9,8 +9,9 @@ urlpatterns = [
     url(r'^Harmonogram/$', views.Harmonogram, name='Harmonogram'),
     url(r'^Partnerzy/$', views.Partnerzy, name='Partnerzy'),
     url(r'^Kontakt/$', views.Kontakt, name='Kontakt'),
-    url(r'^Galeria/$', views.Galeria, name='Galeria'),
+    url(r'^Galeria/$', views.GaleriaV, name='Galeryja'),
     url(r'^Wyniki/$', views.Wyniki, name='Wyniki'),
     url(r'^Loggin/$', views.Loggin, name='Loggin'),
+    url(r'^success/$', views.success, name='succ'),
     url(r'^en/$', views.setAngielski, name='Odra'),
-]
+] 

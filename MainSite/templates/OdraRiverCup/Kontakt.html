@@ -3,15 +3,25 @@
   <head>Dane kontaktowe</head>
 {% block content %}
    <body>
-  <h3>Kontakt</h3>
-  <h2>Imie</h2>
-  <h2>email</h2>
-  <h2>telefon</h2>
-    
-   Temat name:<br>
-  <input type="text" name="topic"><br>
-<p id = "navar">Treść</p>
+  <h1>Kontakt</h1>
+  <h2>Paweł Rańda</h2>
+  <h3>Prezes Akademickiego Klubu Sportowego</h3>
+  <h3>Politechniki Wrocławskiej</h3>
+  <h3>e-mail: pawel.randa@pwr.edu.pl</h3>
+
+
+  <h2>Kornel Kotecki</h2>
+  <h3>e-mail: kornel.kotecki@pwr.edu.pl</h3>
+  <h3>tel. 71 320 43 78</h3>
+
+
+  <p id = "navar">Email</p>
     <input type="email" class="form-control" id="nav-input" name="q" size="21" maxlength="120" value = {{em}}>
-    <br></body>
+    <br>
+    <textarea rows="20" cols="200" name="comment" form="usrform">
+Enter text here...</textarea>
+    <br>
+
+    </body>
   {% endblock %}
 </html>

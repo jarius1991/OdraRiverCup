@@ -41,7 +41,7 @@
         {% if exist %}
             <strong style="color: red; margin-left: 44px;">Użytkownik już istnieje!</strong>
         {% endif %}
-        <form id="user_form" method="post" action="/register/" enctype="multipart/form-data">
+        <form id="user_form" method="post" action="/success/" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="form-group">
                 <div  style="margin-left: auto;margin-right: auto; max-width: 400px;">

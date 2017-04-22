@@ -174,7 +174,7 @@ class Wyniki_Zawodow(models.Model):
 
 class Galeria(models.Model):
     IdZdjecia =  models.AutoField(primary_key=True)
-    Zdjecie = models.FileField()
+    Zdjecie = models.CharField(max_length = 200)
     IdAdmin = models.ForeignKey('auth.User') # Zobacz w panelu admina,admin to user tylko z uprawnieniami
     IdZawody = models.ForeignKey(Zawody, on_delete=models.CASCADE)
     def publish(self):
@@ -182,7 +182,7 @@ class Galeria(models.Model):
         self.save()
 
     def __str__(self):
-        return self.IdZdjecia
+        return str(self.IdZdjecia)
 
     class Meta:
 

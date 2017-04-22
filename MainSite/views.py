@@ -13,16 +13,15 @@ def Harmonogram(request):
 	return render(request, 'OdraRiverCup/Harmonogram.html', {})
 
 def Partnerzy(request):
-
-	return render(request, 'OdraRiverCup/Partnerzy.html', {})
+	return render(request, 'OdraRiverCup/Partnerzy.html', {'galeria':galeria})
 
 def Kontakt(request):
 
 	return render(request, 'OdraRiverCup/Kontakt.html', {})
 
-def Galeria(request):
+def GaleriaV(request):
 	galeria = Galeria.objects.all()
-	return render(request, 'OdraRiverCup/Galeria.html', {'galeria':galeria})
+	return render(request, 'OdraRiverCup/Galeria.html', {"galeria":galeria})
 
 def Wyniki(request):
 	wyniki = Wyniki_Zawodow.objects.all()
@@ -30,6 +29,9 @@ def Wyniki(request):
 
 def Loggin(request):
 	return render(request, 'OdraRiverCup/Logowanie.html', {})
+	
+def success(request):
+	return render(request, 'OdraRiverCup/success.html', {})
 
 def setPolski(request):
 	translation.activate("pl")
