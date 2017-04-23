@@ -1,7 +1,9 @@
-from Comment.models import UserProfile
+#from .models import UserProfile
 from django.contrib.auth.models import User
 from django import forms
 from django.forms import TextInput
+from models import Artykul
+
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
@@ -15,7 +17,14 @@ class UserForm(forms.ModelForm):
             'password': TextInput(attrs={'class': 'dform'})
         }
 
-class UserProfileForm(forms.ModelForm):
+#class UserProfileForm(forms.ModelForm):
+  #  class Meta:
+      #  model = UserProfile
+      #  fields = ('website',)
+
+
+class ArtykulForm(forms.ModelForm):
+
     class Meta:
-        model = UserProfile
-        fields = ('website',)
+        model = Artykul
+        fields = ('tytul', 'tresc')

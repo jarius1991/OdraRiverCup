@@ -133,6 +133,10 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'public', 'static')
 
+STATIC_DIRS = (
+    os.path.join(BASE_DIR,"static"),
+)
+
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'MainSite/locale'),
 )

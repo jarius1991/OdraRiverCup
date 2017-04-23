@@ -26,6 +26,7 @@ class Artykul(models.Model):
     tytul = models.CharField(max_length = 30, verbose_name="Tytuł")
     tresc = models.CharField(max_length = 1000, verbose_name="Treść")#Rozwarzyć zamane na TextField -> lepsze wprowadzanie danych, inny rozkład
 
+
     def publish(self):
         self.published_date = timezone.now()
         self.save()

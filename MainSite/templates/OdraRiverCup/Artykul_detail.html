@@ -1,0 +1,16 @@
+{% extends 'OdraRiverCup/base.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if user.is_authenticated %}
+        <a class="btn btn-default" href="{% url 'Artykul_edit' pk=artykul.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
+        {% if artykul.published_date %}
+            <div class="date">
+                {{ artykul.published_date }}
+            </div>
+        {% endif %}
+        <h1>{{ artykul.tytul }}</h1>
+        <p>{{ artykul.tresc|linebreaksbr }}</p>
+    </div>
+{% endblock %}
