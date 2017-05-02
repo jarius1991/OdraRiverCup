@@ -1,13 +1,21 @@
 {% extends 'OdraRiverCup/base.html' %} 
-<html>
   {% block content %}
-  <body>
-	{% for wyn in wyniki %} 
-      {% if forloop.counter < 6 %}
-           <h1>{{wyn.IdZawody.Nazwa}}</h1>
-           <h1>{{wyn.IdZawody.Czas}}</h1>
-    	{% endif %} 
+    <div class="container">
+    {% for zawody, biegi in wyniki.items %} 
+        <h2>{{zawody}}</h2>
+        <table class="table">
+            <th>Data startu</th>
+            <th>Godzina startu</th>
+            <th>Nazwa zespolu</th>
+            <th>Wynik</th>
+            <tr>
+        {% for bieg in biegi %}
+            {% for element in bieg %}
+                <td>{{element}}</td>
+    	    {% endfor %} 
+        {% endfor %}
+            </tr>
+        </table>
   {% endfor %}
-    </body>
+    </div>
   {% endblock %}
-</html>
