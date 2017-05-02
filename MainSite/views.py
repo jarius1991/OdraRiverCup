@@ -1,4 +1,6 @@
+from django.http import HttpResponse
 from django.shortcuts import render
+from django.template import RequestContext
 from django.utils import translation
 from django.shortcuts import render, get_object_or_404
 from django.utils.translation import LANGUAGE_SESSION_KEY
@@ -7,8 +9,39 @@ from .forms import ArtykulForm
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 
-def Aktualnosci(request):
+def email_poprawny(request):
+	context = RequestContext(request)
+	if request.method == 'GET':
+		email= request.GET['email']
+	poprawny=validateEmail(email)
+	return HttpResponse(poprawny)
 
+def validateEmail( email ):
+    from django.core.validators import validate_email
+    from django.core.exceptions import ValidationError
+    try:
+        validate_email( email )
+        return True
+    except ValidationError:
+        return False
+
+def email_wyslij(request):
+	if request.method == 'POST':
+		email =  request.POST.get("nav-input","")
+		text = request.POST.get("comment","")
+
+	print(email, text)
+	wiadomosc = Wiadomosci()
+	wiadomosc.email = email
+	wiadomosc.tresc = text
+	wiadomosc.save()
+
+	return redirect('Kontakt')
+
+
+
+
+def Aktualnosci(request):
 	artykuly = Artykul.objects.all()
 	return render(request, 'OdraRiverCup/Aktualnosci.html', {'artykuly':artykuly})
 
@@ -82,7 +115,6 @@ def setPolski(request):
 	return render(request,'OdraRiverCup/Aktualnosci.html', {'artykuly':artykuly})
 
 def setAngielski(request):
-
 	artykuly = Artykul.objects.all()
 	translation.activate("en")
 	request.session[LANGUAGE_SESSION_KEY] = 'en'

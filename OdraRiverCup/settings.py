@@ -137,6 +137,9 @@ STATIC_DIRS = (
     os.path.join(BASE_DIR,"static"),
 )
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR,'static'),
+)
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'MainSite/locale'),
 )

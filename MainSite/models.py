@@ -24,11 +24,11 @@ class Artykul(models.Model):
     IdArtykul =  models.AutoField(primary_key=True)
     IdAdmin =  models.ForeignKey('auth.User')
     tytul = models.CharField(max_length = 30, verbose_name="Tytuł")
-    tresc = models.CharField(max_length = 1000, verbose_name="Treść")#Rozwarzyć zamane na TextField -> lepsze wprowadzanie danych, inny rozkład
-
+    tresc = models.TextField(max_length = 1000, verbose_name="Treść")#Rozwarzyć zamane na TextField -> lepsze wprowadzanie danych, inny rozkład
+    data = models.DateTimeField(auto_now_add=True)
 
     def publish(self):
-        self.published_date = timezone.now()
+        self.data = timezone.now()
         self.save()
 
     def __str__(self):
@@ -37,6 +37,17 @@ class Artykul(models.Model):
     class Meta:
         #ordering = ('-published_date',)#jak przechowywana jest data publikacji? Według czego porządkujemy.
         verbose_name_plural="Artykuły"
+
+
+class Wiadomosci(models.Model):
+    email=models.CharField(max_length=255)
+    tresc=models.TextField(max_length = 1000, verbose_name="Treść")
+
+    def __str__(self):
+        return self.email + ":  "+ self.tresc[:20]
+
+    class Meta:
+        verbose_name_plural="Wiadomości"
 
 class Harmonogram_Zawodow(models.Model):
     IdH = models.AutoField(primary_key=True, verbose_name="Numer identyfikacyjny harmonogramu")
@@ -62,6 +73,7 @@ class Harmonogram_Startow(models.Model):
     Data = models.DateTimeField(default=timezone.now) #Dzień w którym odbywają się dane starty
     # TODO: Zdefiniować co oznacza czas  -> godzina startu (pojednyczy bieg)
     Czas = models.DateTimeField(default=timezone.now)
+
 
     def publish(self):
         self.published_date = timezone.now()

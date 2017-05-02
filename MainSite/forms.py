@@ -28,3 +28,9 @@ class ArtykulForm(forms.ModelForm):
     class Meta:
         model = Artykul
         fields = ('tytul', 'tresc')
+
+
+#class EmailForm(forms.Form):
+  #  email = forms.EmailField(label='email', max_length=120, size=21 )
+   # text = forms.Textarea(label='text', )
+

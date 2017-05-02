@@ -17,4 +17,6 @@ urlpatterns = [
     url(r'^Loggin/$', views.Loggin, name='Loggin'),
     url(r'^success/$', views.success, name='succ'),
     url(r'^en/$', views.setAngielski, name='Odra'),
+    url(r'^email_poprawny/$', views.email_poprawny, name='email_poprawny'),
+    url(r'^email_wyslij/$', views.email_wyslij, name='email_wyslij'),
 ] 

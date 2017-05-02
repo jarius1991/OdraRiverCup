@@ -10,6 +10,8 @@
   {% for artykul in artykuly %}
       {% if forloop.counter < 6 %}
            <h1><a href="{% url 'Artykul_detail' pk=artykul.pk %}"> {{artykul.tytul}}</a> </h1>
+            <h4>{{artykul.data}}</h4>
+            <h4>{{artykul.IdAdmin}}</h4>
            <h3>{{artykul.tresc}}</h3>
     	 {% endif %}
   {% endfor %}

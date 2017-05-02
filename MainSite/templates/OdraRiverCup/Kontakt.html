@@ -1,8 +1,60 @@
-{% extends 'OdraRiverCup/base.html' %} 
-<html>
-  <head>Dane kontaktowe</head>
+{% extends 'OdraRiverCup/base.html' %}
+
+{% block javascript %}
+  <script>
+    $("#nav-input").change(function () {
+      var typed = document.getElementById('nav-input').value
+      $.get('/email_poprawny/', {email : typed}, function(data){
+            if(data == "True")
+            {
+              document.getElementById("email_proper").innerHTML = "";
+              document.getElementById("form_button").disabled = false;
+              var typed1 = document.getElementById('comment').value;
+              if(typed1 == "Enter text here..." || typed1 == "" )
+              {
+                document.getElementById("text_proper").innerHTML = "Wiadomość nie została wpisana";
+                document.getElementById("form_button").disabled = true;
+              }
+            }else
+            {
+              document.getElementById("email_proper").innerHTML = "Adres email jest niepoprawny";
+              document.getElementById("form_button").disabled = true;
+            }
+
+      });
+
+
+
+    });
+
+    $("#comment").change(function () {
+      var typed = document.getElementById('comment').value
+      if(typed == "Enter text here..." || typed == "" )
+      {
+        document.getElementById("text_proper").innerHTML = "Wiadomość nie została wpisana";
+        document.getElementById("form_button").disabled = true;
+      }else
+      {
+        document.getElementById("text_proper").innerHTML = "";
+        document.getElementById("form_button").disabled = false;
+
+        var typed1 = document.getElementById('nav-input').value;
+        $.get('/email_poprawny/', {email : typed1}, function(data){
+        if(data == "True")
+        {
+          document.getElementById("email_proper").innerHTML = "";
+          document.getElementById("form_button").disabled = false;
+        }
+        })
+      }
+
+      });
+  </script>
+
+
+{% endblock %}
+
 {% block content %}
-   <body>
   <h1>Kontakt</h1>
   <h2>Paweł Rańda</h2>
   <h3>Prezes Akademickiego Klubu Sportowego</h3>
@@ -14,14 +66,19 @@
   <h3>e-mail: kornel.kotecki@pwr.edu.pl</h3>
   <h3>tel. 71 320 43 78</h3>
 
-
+  <form action="/email_wyslij/" method="post">
+    {% csrf_token %}
   <p id = "navar">Email</p>
-    <input type="email" class="form-control" id="nav-input" name="q" size="21" maxlength="120" value = {{em}}>
+    <input type="email" class="form-control" id="nav-input" name="nav-input" size="21" maxlength="120" value = {{em}}>
+    <h2 id="email_proper"></h2>
     <br>
-    <textarea rows="20" cols="200" name="comment" form="usrform">
-Enter text here...</textarea>
+    <textarea rows="20" cols="200" id="comment" name="comment" >Enter text here...</textarea>
+    <h2 id="text_proper"></h2>
     <br>
 
-    </body>
+    <input id="form_button" type="submit" value="Wyślij" disabled='true'>
+    </form>
+
+
   {% endblock %}
-</html>
+
