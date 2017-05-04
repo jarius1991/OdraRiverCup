@@ -1,8 +1,8 @@
 #from .models import UserProfile
 from django.contrib.auth.models import User
 from django import forms
-from django.forms import TextInput
-from models import Artykul
+from django.forms import TextInput,FileInput,RadioSelect
+from MainSite.models import *
 
 
 class UserForm(forms.ModelForm):
@@ -29,7 +29,17 @@ class ArtykulForm(forms.ModelForm):
         model = Artykul
         fields = ('tytul', 'tresc')
 
+class GaleriaForm(forms.ModelForm):
 
+    class Meta:
+        model = Galeria
+        fields = ('IdZawody', 'Zdjecie')
+        CHOICES = Zawody
+        widgets = {
+            'tytul': forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect()),
+            'zdjecie': FileInput()
+        }
+        
 #class EmailForm(forms.Form):
   #  email = forms.EmailField(label='email', max_length=120, size=21 )
    # text = forms.Textarea(label='text', )

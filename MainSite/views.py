@@ -5,7 +5,7 @@ from django.utils import translation
 from django.shortcuts import render, get_object_or_404
 from django.utils.translation import LANGUAGE_SESSION_KEY
 from .models import *
-from .forms import ArtykulForm
+from .forms import *  
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
@@ -137,10 +137,26 @@ def setPolski(request):
     return render(request,'OdraRiverCup/Aktualnosci.html', {'artykuly':artykuly})
 
 def setAngielski(request):
-
-	artykuly = Artykul.objects.all()
-	translation.activate("en")
-	request.session[LANGUAGE_SESSION_KEY] = 'en'
-
-
+    artykuly = Artykul.objects.all()
+    translation.activate("en")
+    request.session[LANGUAGE_SESSION_KEY] = 'en'
     return render(request,'OdraRiverCup/Aktualnosci.html', {'artykuly':artykuly})
+
+@login_required
+def Galeria_new(request):
+    form = GaleriaForm(request.POST or None)
+    if form.is_valid():
+        zdjec.IdAdmin = request.user
+        zdjec.published_date = timezone.now()
+        zdjec.save()
+        return redirect('Galeria_detail', pk=zdjec.pk)
+
+    return render(request, "OdraRiverCup/Galeria_new.html", {'form':form})
+
+@login_required
+def Galeria_remove(request):
+    if request.method == "POST":
+        id = request.POST.get('rem', '')
+        lista = get_object_or_404(Galeria, pk=id)
+        lista.delete()
+    return redirect(GaleriaV)
