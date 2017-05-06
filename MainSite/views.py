@@ -144,12 +144,13 @@ def setAngielski(request):
 
 @login_required
 def Galeria_new(request):
-    form = GaleriaForm(request.POST or None)
+    form = GaleriaForm(request.POST or None, request.FILES)
     if form.is_valid():
+        zdjec = form.save(commit=False)
         zdjec.IdAdmin = request.user
         zdjec.published_date = timezone.now()
         zdjec.save()
-        return redirect('Galeria_detail', pk=zdjec.pk)
+        return redirect(GaleriaV)
 
     return render(request, "OdraRiverCup/Galeria_new.html", {'form':form})
 
@@ -160,3 +161,18 @@ def Galeria_remove(request):
         lista = get_object_or_404(Galeria, pk=id)
         lista.delete()
     return redirect(GaleriaV)
+
+@login_required
+def Galeria_edit(request,pk):
+    zdjecie = get_object_or_404(Galeria, pk=pk)
+    if request.method == "POST":
+        form = GaleriaForm(request.POST,request.FILES, instance=zdjecie)
+        if form.is_valid():
+            zdjecie = form.save(commit=False)
+            zdjecie.IdAdmin = request.user
+            zdjecie.published_date = timezone.now()
+            zdjecie.save()
+            return redirect(GaleriaV)
+    else:
+        form = GaleriaForm(instance=zdjecie)
+    return render(request, 'OdraRiverCup/Galeria_new.html', {'form': form})

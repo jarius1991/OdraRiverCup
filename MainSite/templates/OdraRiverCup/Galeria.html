@@ -14,6 +14,7 @@
       {% if forloop.counter < 6 %}
             {% if user.is_authenticated %}
             <form method="post" action="/Galeria/remove/"><button name="rem" type="submit" class="btn btn-default lb" value="{{ gal.IdZdjecia }}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>{% csrf_token %}</form>
+            <a class="btn btn-default" href="{% url 'Galeria_edit' gal.IdZdjecia %}"><span class="glyphicon glyphicon-cog"></span></a>
              {% endif %}
            <h1>{{gal.IdZawody}}</h1>
            <img src="{{gal.Zdjecie.url}}" style="width:756;height:512px;">

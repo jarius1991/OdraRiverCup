@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^Artykul/new/$', views.Artykul_new, name='Artykul_new'),
     url(r'^Galeria/new/$', views.Galeria_new, name='Galeria_new'),
     url(r'^Galeria/remove/$', views.Galeria_remove, name='Galeria_remove'),
+    url(r'^Galeria/(?P<pk>[0-9]+)/edit/$', views.Galeria_edit, name='Galeria_edit'),
     url(r'^Harmonogram/$', views.Harmonogram, name='Harmonogram'),
     url(r'^Partnerzy/$', views.Partnerzy, name='Partnerzy'),
     url(r'^Kontakt/$', views.Kontakt, name='Kontakt'),
