@@ -3,24 +3,21 @@
 {% block javascript %}
   <script>
     $("#nav-input").change(function () {
-      var typed = document.getElementById('nav-input').value
+      var typed = $('#nav-input').val();
       $.get('/email_poprawny/', {email : typed}, function(data){
-            if(data == "True")
-            {
-              document.getElementById("email_proper").innerHTML = "";
-              document.getElementById("form_button").disabled = false;
-              var typed1 = document.getElementById('comment').value;
-              if(typed1 == "Enter text here..." || typed1 == "" )
-              {
-                document.getElementById("text_proper").innerHTML = "Wiadomość nie została wpisana";
-                document.getElementById("form_button").disabled = true;
+            if(data == "True"){
+              $("#email_proper").html("");
+              $("#form_button").prop("disabled",  false);
+              var typed1 = $('#comment').val();
+              if(typed1 == "Enter text here..." || typed1 == "" ){
+                $("#text_proper").html("Wiadomość nie została wpisana");
+                $("#form_button").prop("disabled",  true);
               }
-            }else
-            {
-              document.getElementById("email_proper").innerHTML = "Adres email jest niepoprawny";
-              document.getElementById("form_button").disabled = true;
             }
-
+            else{
+              $("#email_proper").html("Adres email jest niepoprawny");
+              $("#form_button").prop("disabled",  true);
+            }
       });
 
 
@@ -28,26 +25,26 @@
     });
 
     $("#comment").change(function () {
-      var typed = document.getElementById('comment').value
-      if(typed == "Enter text here..." || typed == "" )
-      {
-        document.getElementById("text_proper").innerHTML = "Wiadomość nie została wpisana";
-        document.getElementById("form_button").disabled = true;
-      }else
-      {
-        document.getElementById("text_proper").innerHTML = "";
-        document.getElementById("form_button").disabled = false;
+      var typed = $('#comment').val();
+      if(typed == "Enter text here..." || typed == "" ){
+        $("#text_proper").html("Wiadomość nie została wpisana");
+        $("#form_button").prop("disabled",  true);
+      }else{
+        $("#text_proper").html("");
+        $("#form_button").prop("disabled",  false);
 
-        var typed1 = document.getElementById('nav-input').value;
+        var typed1 = $('#nav-input').val();
         $.get('/email_poprawny/', {email : typed1}, function(data){
-        if(data == "True")
-        {
-          document.getElementById("email_proper").innerHTML = "";
-          document.getElementById("form_button").disabled = false;
+        if(data == "True"){
+          $("#email_proper").html("");
+          $("#form_button").prop("disabled",  false);
+        }
+        else{
+              $("#email_proper").html("Adres email jest niepoprawny");
+              $("#form_button").prop("disabled",  true);
         }
         })
       }
-
       });
   </script>
 
@@ -81,4 +78,5 @@
 
 
   {% endblock %}
+
 
