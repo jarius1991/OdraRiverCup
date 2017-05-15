@@ -51,10 +51,11 @@ def Artykul_new(request):
     if request.method == "POST":
         form = ArtykulForm(request.POST)
         if form.is_valid():
-            artykul = form.save(commit = False)
-            artykul.IdAdmin = request.user
-            artykul.published_date = timezone.now()
-            artykul.save()
+            #artykul = form.save(commit = False)
+            #artykul.IdAdmin = request.user
+            #artykul.published_date = timezone.now()
+            #artykul.save()
+            artykul = form.zapisz(form,request,timezone)
             return redirect('Artykul_detail', pk=artykul.pk)
     else:
         form = ArtykulForm()
@@ -67,10 +68,11 @@ def Artykul_edit(request, pk):
     if request.method == "POST":
         form = ArtykulForm(request.POST, instance=artykul)
         if form.is_valid():
-            artykul = form.save(commit=False)
-            artykul.IdAdmin = request.user
-            artykul.published_date = timezone.now()
-            artykul.save()
+            #artykul = form.save(commit = False)
+            #artykul.IdAdmin = request.user
+            #artykul.published_date = timezone.now()
+            #artykul.save()
+            artykul = form.zapisz(form,request,timezone)
             return redirect('Artykul_detail', pk=artykul.pk)
     else:
         form = ArtykulForm(instance=artykul)
