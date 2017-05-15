@@ -24,6 +24,12 @@ class UserForm(forms.ModelForm):
 
 
 class ArtykulForm(forms.ModelForm):
+    def zapisz(self, form, request, timezone):
+        artykul = form.save(commit = False)
+        artykul.IdAdmin = request.user
+        artykul.published_date = timezone.now()
+        artykul.save()
+        return artykul
 
     class Meta:
         model = Artykul
