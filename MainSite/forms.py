@@ -1,7 +1,7 @@
-#from .models import UserProfile
-from django.contrib.auth.models import User
 from django import forms
-from django.forms import TextInput,FileInput,RadioSelect
+from django.contrib.auth.models import User
+from django.forms import FileInput, RadioSelect, TextInput
+
 from MainSite.models import *
 
 
@@ -15,12 +15,8 @@ class UserForm(forms.ModelForm):
             'username': TextInput(attrs={'class': 'dform'}),
             'email': TextInput(attrs={'class': 'dform'}),
             'password': TextInput(attrs={'class': 'dform'})
-        }
 
-#class UserProfileForm(forms.ModelForm):
-  #  class Meta:
-      #  model = UserProfile
-      #  fields = ('website',)
+        }
 
 
 class ArtykulForm(forms.ModelForm):
@@ -35,8 +31,8 @@ class ArtykulForm(forms.ModelForm):
         model = Artykul
         fields = ('tytul', 'tresc')
 
-class GaleriaForm(forms.ModelForm):
 
+class GaleriaForm(forms.ModelForm):
     class Meta:
         model = Galeria
         fields = ('IdZawody', 'Zdjecie')
@@ -45,8 +41,20 @@ class GaleriaForm(forms.ModelForm):
             'tytul': forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect()),
             'zdjecie': FileInput()
         }
-        
+
+
+class UserDataForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('Email', 'Uczelnia', 'Telefon', 'Ulica', 'Numer',
+                  'Mieszkanie', 'KodPocztowy', 'Miejscowosc')
+
+
+class UserForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput())
+    class Meta:
+        model = User
+        fields = ('username', 'password')
 #class EmailForm(forms.Form):
   #  email = forms.EmailField(label='email', max_length=120, size=21 )
    # text = forms.Textarea(label='text', )
-

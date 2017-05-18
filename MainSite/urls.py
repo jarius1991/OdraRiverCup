@@ -17,9 +17,18 @@ urlpatterns = [
     url(r'^Kontakt/$', views.Kontakt, name='Kontakt'),
     url(r'^Galeria/$', views.GaleriaV, name='Galeryja'),
     url(r'^Wyniki/$', views.Wyniki, name='Wyniki'),
+    url(r'^Wyniki/remove/$', views.Remove_Wyniki, name='Remove_Wyniki'),
     url(r'^Loggin/$', views.Loggin, name='Loggin'),
     url(r'^success/$', views.success, name='succ'),
     url(r'^en/$', views.setAngielski, name='Odra'),
     url(r'^email_poprawny/$', views.email_poprawny, name='email_poprawny'),
     url(r'^email_wyslij/$', views.email_wyslij, name='email_wyslij'),
-] 
+    url(r'^accounts/edit/$', views.profile_edit, name='edytuj_profil'),
+    url(r'^accounts/register/$', views.register, name='register'),
+    url(r'^accounts/login/$', views.login, name='login'),
+    url(r'^accounts/process_login/$', views.process_login, name='process_login'),
+    url(r'^accounts/loggedin/$', views.loggedin, name='loggedin'),
+    url(r'^accounts/login_error/$', views.login_error, name='login_error'),
+    url(r'^accounts/logout/$', views.logout, name='logout')
+
+]
