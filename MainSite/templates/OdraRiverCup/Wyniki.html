@@ -1,21 +1,31 @@
-{% extends 'OdraRiverCup/base.html' %} 
-  {% block content %}
-    <div class="container">
-    {% for zawody, biegi in wyniki.items %} 
-        <h2>{{zawody}}</h2>
-        <table class="table">
-            <th>Data startu</th>
-            <th>Godzina startu</th>
-            <th>Nazwa zespolu</th>
-            <th>Wynik</th>
-            <tr>
+{% extends 'OdraRiverCup/base.html' %} add {% load i18n %} {% block content %}
+<div class="container">
+    {% csrf_token %}
+
+    {% for zawody, harmonogramy in wyniki.items %}
+    <h1>{{zawody}}</h1>
+    {% if user.is_authenticated %} 
+        <!-- <form method="post" action="/Wyniki/remove/"> --> 
+        <!--     <button name="remove" type="submit" class="btn btn-default lb" value="{{ zawody }}"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> </button> -->
+        <!--     {% csrf_token %} -->
+        <!-- </form> --> 
+    {% endif %}
+
+    {% for harmonogram, biegi in harmonogramy.items %}
+    <h2>{{harmonogram}}</h2>
+    <table class=table>
+        <th id="englang">{% trans 'Data startu' %}</th>
+        <th id="englang">{% trans 'Godzina startu' %}</th>
+        <th id="englang">{% trans 'Nazwa zespolu' %}</th>
+        <th id="englang">{% trans 'Wynik' %}</th>
         {% for bieg in biegi %}
-            {% for element in bieg %}
-                <td>{{element}}</td>
-    	    {% endfor %} 
+            <tr>
+            {% for zespol in bieg %}
+            <td>{{zespol}}</td>
+            {% endfor %}
+        </tr>
         {% endfor %}
-            </tr>
-        </table>
-  {% endfor %}
-    </div>
-  {% endblock %}
+    </table>
+    {% endfor %} {% endfor %}
+</div>
+{% endblock %}
