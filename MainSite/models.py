@@ -7,7 +7,7 @@ from django.dispatch import receiver
 
 
 class Zawody(models.Model):
-    IdZawody = models.AutoField(primary_key=True )
+    IdZawody = models.AutoField(primary_key=True)
     Nazwa = models.CharField(max_length=30, verbose_name="Nazwa zespołu")
 
     def publish(self):
@@ -16,13 +16,14 @@ class Zawody(models.Model):
 
     def __str__(self):
         return self.Nazwa
-    class Meta:
 
-        verbose_name_plural="Zawody"
+    class Meta:
+        verbose_name_plural = "Zawody"
+
 
 class Artykul(models.Model):
-    IdArtykul =  models.AutoField(primary_key=True)
-    IdAdmin =  models.ForeignKey('auth.User')
+    IdArtykul = models.AutoField(primary_key=True)
+    IdAdmin = models.ForeignKey('auth.User')
     tytul = models.CharField(max_length = 30, verbose_name="Tytuł")
     tresc = models.TextField(max_length = 1000, verbose_name="Treść")#Rozwarzyć zamane na TextField -> lepsze wprowadzanie danych, inny rozkład
     data = models.DateTimeField(auto_now_add=True)
@@ -88,34 +89,26 @@ class Harmonogram_Startow(models.Model):
         verbose_name_plural="Harmonogram Startów"
 
 
-class Adres(models.Model):
-    IdAdres = models.AutoField(primary_key=True)
+class Profile(models.Model):
+    # This line is required. Links UserProfile to a User model instance.
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    Uczelnia = models.CharField(max_length=255)
+    Email = models.CharField(max_length=255)
+    Telefon = models.CharField(max_length=30)
     Ulica = models.CharField(max_length=255)
     Numer = models.CharField(max_length=30)
     Mieszkanie = models.CharField(max_length=30)
     KodPocztowy = models.CharField(max_length=30, verbose_name="Kod Pocztowy")
     Miejscowosc = models.CharField(max_length=255, verbose_name="Miejscowość")
 
-    class Meta:
-        verbose_name_plural="Adresy"
-
-
-class UserProfile(models.Model):
-    # This line is required. Links UserProfile to a User model instance.
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    Uczelnia = models.CharField(max_length=255)
-    Adres = models.ForeignKey(Adres, on_delete=models.CASCADE)
-    Email = models.CharField(max_length=255)
-    Telefon = models.CharField(max_length=30)
-
-    def __unicode__(self):
+    def __str__(self):
         return self.user.username
 
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
-        UserProfile.objects.create(user=instance)
+        Profile.objects.create(user=instance)
 
 class Zespol(models.Model):
     IdZ = models.AutoField(primary_key=True)
@@ -159,29 +152,28 @@ class Zawodnik(models.Model):
 
 
 class Zespol_Zawody(models.Model):
-    IdZ_0 = models.ForeignKey(Zespol,on_delete=models.CASCADE, verbose_name="Identyfikator zespołu")
+    IdZ_0 = models.ForeignKey(Zespol, on_delete=models.CASCADE, verbose_name="Identyfikator zespołu")
     IdZawody = models.ForeignKey(Zawody, on_delete=models.CASCADE, verbose_name="Identyfikator zawodów")
 
     class Meta:
-        verbose_name_plural="Zespoły w zawodach"
-
+        verbose_name_plural = "Zespoły w zawodach"
 
 
 class Wyniki_Zawodow(models.Model):
-    IdWynikow =  models.AutoField(primary_key=True)
+    IdWynikow = models.AutoField(primary_key=True)
     IdHs = models.ForeignKey(Harmonogram_Startow,on_delete=models.CASCADE, verbose_name="Numer wyścigu")
-    IdZawody = models.ForeignKey(Zespol, on_delete=models.CASCADE, verbose_name="Identyfikator zawodów")
-    Czas = models.DateTimeField(default=timezone.now)
+    IdZawody = models.ForeignKey(Zawody, on_delete=models.CASCADE, verbose_name="Identyfikator zawodów")
+    IdZespol = models.ForeignKey(Zespol, on_delete=models.CharField, verbose_name="Identyfikator zespolu")
+    Czas = models.CharField(default="00:00:000", max_length=20)
 
     def publish(self):
         self.published_date = timezone.now()
         self.save()
 
     def __str__(self):
-        return self.IdWynikow
+        return str(self.IdWynikow)
 
     class Meta:
-
         verbose_name_plural="Wyniki zawodów"
 
 
