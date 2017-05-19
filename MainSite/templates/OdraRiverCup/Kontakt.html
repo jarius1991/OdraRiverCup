@@ -52,29 +52,32 @@
 {% endblock %}
 
 {% block content %}
-  <h1>Kontakt</h1>
+<fieldset>
+  <legend class="legenda"><h2>Kontakt</h2></legend>
   <h2>Paweł Rańda</h2>
-  <h3>Prezes Akademickiego Klubu Sportowego</h3>
-  <h3>Politechniki Wrocławskiej</h3>
-  <h3>e-mail: pawel.randa@pwr.edu.pl</h3>
+  <em><h3>Prezes Akademickiego Klubu Sportowego</h3></em>
+  <em><h3>Politechniki Wrocławskiej</h3></em>
+  <a href="mailto:pawel.randa@pwr.edu.pl?subject=Odra river Cup"><h3>e-mail: pawel.randa@pwr.edu.pl</h3></a>
 
 
   <h2>Kornel Kotecki</h2>
-  <h3>e-mail: kornel.kotecki@pwr.edu.pl</h3>
+  <a href="mailto:kornel.kotecki@pwr.edu.pl?subject=Odra river Cup"><h3>e-mail: kornel.kotecki@pwr.edu.pl</h3></a>
   <h3>tel. 71 320 43 78</h3>
+
 
   <form action="/email_wyslij/" method="post">
     {% csrf_token %}
-  <p id = "navar">Email</p>
+  <p id = "navar" class="text-left">Email</p>
     <input type="email" class="form-control" id="nav-input" name="nav-input" size="21" maxlength="120" value = {{em}}>
     <h2 id="email_proper"></h2>
     <br>
-    <textarea rows="20" cols="200" id="comment" name="comment" >Enter text here...</textarea>
+    <textarea rows="20"  id="comment" name="comment" class="form-control"  >Enter text here...</textarea>
     <h2 id="text_proper"></h2>
     <br>
 
-    <input id="form_button" type="submit" value="Wyślij" disabled='true'>
+    <input id="form_button" type="submit" value="Wyślij" disabled='true' class="btn btn-default btn-lg" >
     </form>
+  </fieldset>
 
 
   {% endblock %}
