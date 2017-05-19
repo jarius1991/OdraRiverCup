@@ -5,75 +5,125 @@
 <!-- Current language: {{ LANGUAGE_CODE }} -->
 <html>
 <head>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <script type="text/javascript" language="javascript"  src="{% static '/js/jquery.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cover.css' %}">
 </head>
 <body>
-    <div id="header">
-      <h1><a href ="/"><b>Odra River Cup</b></a></h1>
-    </div>
-    <div class="content container">
-        <div class="row">
-            <div class="col-md-8">
-                        <table style="width:100%">
-  <tr>  
-{{LANGUAGE_CODE}}
-    <form class="navbar-form navbar-left" method="get" action="/">
-          <th><button id = "englang" type="submit" class="btn btn-default">{% trans 'Aktualności' %}</button></th>
-    </form>
-    <form class="navbar-form navbar-left" method="get" action="/Harmonogram">
-          <th><button id = "englang" type="submit" class="btn btn-default">{% trans 'Harmonogram' %}</button></th>
-    </form>
-    <form class="navbar-form navbar-left" method="get" action="/Partnerzy">
-          <th><button id = "englang" type="submit" class="btn btn-default">{% trans 'Partnerzy/Patroni' %}</button></th>
-    </form>
-    <form class="navbar-form navbar-left" method="get" action="/Kontakt">
-          <th><button id = "englang" type="submit" class="btn btn-default">{% trans 'Kontakt' %}</button></th>
-    </form>
-    <form class="navbar-form navbar-left" method="get" action="/Galeria">
-          <th><button id = "englang" type="submit" class="btn btn-default">{% trans 'Galeria' %}</button></th>
-    </form>
-    <form class="navbar-form navbar-left" method="get" action="/Wyniki">
-          <th><button id = "englang" type="submit" class="btn btn-default">{% trans 'Wyniki' %}</button></th>
-    </form>
+ <div class="site-wrapper">
 
-    {% if user.is_authenticated %}
-    <form class="navbar-form navbar-left" method="get" action="/accounts/edit">
-          <th><button id="englang" type="submit" class="btn btn-default">{% trans 'Edytuj profil' %}</button></th>
-    </form>
-    {% endif %} {% if user.is_authenticated %}
-    <form class="navbar-form navbar-left" method="get" action="/accounts/logout">
-          <th><button id="englang" type="submit" class="btn btn-default">{% trans 'Wyloguj' %}</button></th>
-    </form>
-    {% else %}
-    <form class="navbar-form navbar-left" method="get" action="/accounts/login">
-          <th><button id="englang" type="submit" class="btn btn-default">{% trans 'Zaloguj' %}</button></th>
-    </form>
-    {% endif %}
+      <div class="site-wrapper-inner">
 
-  </tr>
-  </table>
-   <form class="navbar-form navbar-left" method="get" action="/en">
-          <button id = "englang" type="submit" class="btn btn-default">English</button>
-    </form>
-    <form class="navbar-form navbar-left" method="get" action="/pl">
-          <button id = "englang" type="submit" class="btn btn-default">Polski</button>
-    </form>
+        <div class="cover-container">
 
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand"> <a href ="/"><b>Odra River Cup</b></a></h3>
+              <nav>
+                <ul class="nav masthead-nav">{{LANGUAGE_CODE}}
+                  <li>
+                       <a href="/" >
+                          {% trans 'Aktualności' %}
+                       </a>
+                  </li>
+                  <li>
+                      <a href="/Harmonogram" >
+                          {% trans 'Harmonogram' %}
+                       </a>
+                  </li>
+                    <li>
+                      <a href="/Partnerzy" >
+                          {% trans 'Partnerzy/Patroni' %}
+                       </a>
+                  </li>
+                       <li>
+                      <a href="/Kontakt" >
+                          {% trans 'Kontakt' %}
+                       </a>
+                  </li>
+
+                       <li>
+                      <a href="/Galeria" >
+                         {% trans 'Galeria' %}
+                       </a>
+                  </li>
+
+                      <li>
+                      <a href="/Wyniki" >
+                        {% trans 'Wyniki' %}
+                       </a>
+                  </li>
+                    {% if user.is_authenticated %}
+                     <li>
+                      <a href="/accounts/edit" >
+                        {% trans 'Edytuj profil' %}
+                       </a>
+                  </li>
+                    {% endif %}
+
+                     {% if user.is_authenticated %}
+
+                    <li>
+                      <a href="/accounts/logout">
+                        {% trans 'Wyloguj' %}
+                       </a>
+                    </li>
+                    {% else %}
+                    <li>
+                      <a href="/accounts/login">
+                        {% trans 'Zaloguj' %}
+                       </a>
+                    </li>
+                      {% endif %}
+
+
+                     <li>
+                      <a href="/en">
+                        English
+                       </a>
+                    </li>
+
+                     <li>
+                      <a href="/pl">
+                        Polski
+                       </a>
+                    </li>
+
+                </ul>
+              </nav>
             </div>
+          </div>
+
+       <div class="inner cover">
+           {% block content %}
+           {% endblock %}
+       </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Szablon stworzony przez Jaremę Radoma,Jarka Poradę i Mateusza Kosiba</p>
+            </div>
+          </div>
+
         </div>
-            {% block content %}
-            {% endblock %}
+
+      </div>
+
     </div>
+
+
     <script type="text/javascript" language="javascript"  src="{% static '/js/jquery.js' %}"></script>
     <script type="text/javascript" language="javascript">
             $(document).ready(function(){
             <!--"alert("Hello world");"-->
         })
     </script>
-    <script src="{% static 'js/app.js' %}"></script>
+
+     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+
     {% block javascript %}{% endblock %}
 </body>
 
