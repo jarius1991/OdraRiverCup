@@ -1,0 +1,29 @@
+{% extends 'OdraRiverCup/base.html' %} {% block content %}
+<form method="post" name="profile_form">
+    {% csrf_token %}
+    <div class="grid">
+        {% for field in profile_form %}
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">{{field.label}}</div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">{{field}}</div>
+        </div>
+        {% endfor %}
+    </div>
+    <input type="submit" value="Submit" />
+</form>
+
+<form method="post" name="password_form">
+    {% csrf_token %}
+    <div class="grid">
+        {% for field in password_form %}
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">{{field.label}}</div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">{{field}}</div>
+        </div>
+        {% endfor %}
+    </div>
+    <input type="submit" value="Submit" />
+</form>
+
+</form>
+{% endblock %}

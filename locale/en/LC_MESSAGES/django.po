@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-18 21:15+0200\n"
+"POT-Creation-Date: 2017-05-19 18:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: .\OdraRiverCup\settings.py:113
+#: .\OdraRiverCup\settings.py:114
 msgid "Polish"
 msgstr ""
 
-#: .\OdraRiverCup\settings.py:114
+#: .\OdraRiverCup\settings.py:115
 msgid "English"
 msgstr ""
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-18 21:15+0200\n"
+"POT-Creation-Date: 2017-05-19 18:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,30 +20,59 @@ msgstr ""
 "%100<12 || n%100>=14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
 "%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-#: .\MainSite\templates\OdraRiverCup\base.html:18
-msgid "Aktualności"
-msgstr "News        "
+#: .\MainSite\templates\OdraRiverCup\Wyniki.html:17
+msgid "Data startu"
+msgstr "Start date"
 
-#: .\MainSite\templates\OdraRiverCup\base.html:21
+#: .\MainSite\templates\OdraRiverCup\Wyniki.html:18
+msgid "Godzina startu"
+msgstr "Start time"
+
+#: .\MainSite\templates\OdraRiverCup\Wyniki.html:19
+msgid "Nazwa zespolu"
+msgstr "Team name"
+
+#: .\MainSite\templates\OdraRiverCup\Wyniki.html:20
+#, fuzzy
+#| msgid "Wyniki"
+msgid "Wynik"
+msgstr "Scores"
+
+#: .\MainSite\templates\OdraRiverCup\base.html:28
+msgid "Aktualności"
+msgstr "News"
+
+#: .\MainSite\templates\OdraRiverCup\base.html:33
 msgid "Harmonogram"
 msgstr "Schedule"
 
-#: .\MainSite\templates\OdraRiverCup\base.html:24
+#: .\MainSite\templates\OdraRiverCup\base.html:38
 msgid "Partnerzy/Patroni"
 msgstr "Partners/Patrons"
 
-#: .\MainSite\templates\OdraRiverCup\base.html:27
+#: .\MainSite\templates\OdraRiverCup\base.html:43
 msgid "Kontakt"
 msgstr "Contact"
 
-#: .\MainSite\templates\OdraRiverCup\base.html:30
+#: .\MainSite\templates\OdraRiverCup\base.html:49
 msgid "Galeria"
 msgstr "Gallery"
 
-#: .\MainSite\templates\OdraRiverCup\base.html:33
+#: .\MainSite\templates\OdraRiverCup\base.html:55
 msgid "Wyniki"
 msgstr "Scores"
 
-#: .\MainSite\templates\OdraRiverCup\base.html:36
-msgid "Logowanie"
-msgstr "Log in"
+#: .\MainSite\templates\OdraRiverCup\base.html:61
+msgid "Edytuj profil"
+msgstr "Edit profile"
+
+#: .\MainSite\templates\OdraRiverCup\base.html:70
+msgid "Wyloguj"
+msgstr "Logout"
+
+#: .\MainSite\templates\OdraRiverCup\base.html:76
+msgid "Zaloguj"
+msgstr "Login"
+
+#~ msgid "Logowanie"
+#~ msgstr "Log in"
