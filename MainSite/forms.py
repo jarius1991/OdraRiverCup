@@ -33,6 +33,13 @@ class ArtykulForm(forms.ModelForm):
 
 
 class GaleriaForm(forms.ModelForm):
+    def zapisz(self,form,request,timezone):
+        zdjec = form.save(commit=False)
+        zdjec.IdAdmin = request.user
+        zdjec.published_date = timezone.now()
+        zdjec.save()
+        return zdjec;
+    
     class Meta:
         model = Galeria
         fields = ('IdZawody', 'Zdjecie')

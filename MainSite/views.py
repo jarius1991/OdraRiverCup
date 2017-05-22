@@ -1,4 +1,4 @@
-# -*- coding: UTF-8 -*-
+    # -*- coding: UTF-8 -*-
 from datetime import datetime
 
 from django.contrib.auth.decorators import login_required
@@ -168,12 +168,11 @@ def setAngielski(request):
 def Galeria_new(request):
     form = GaleriaForm(request.POST or None, request.FILES)
     if form.is_valid():
-        # TODO
-        # Wydzielić funkcje
-        zdjec = form.save(commit=False)
-        zdjec.IdAdmin = request.user
-        zdjec.published_date = timezone.now()
-        zdjec.save()
+        #zdjec = form.save(commit=False)
+        #zdjec.IdAdmin = request.user
+        #zdjec.published_date = timezone.now()
+        #zdjec.save()
+        zdjec = form.zapisz(form,request,timezone)
         return redirect(GaleriaV)
 
     return render(request, "OdraRiverCup/Galeria_new.html",
@@ -192,17 +191,18 @@ def Galeria_remove(request):
 @login_required
 def Galeria_edit(request, pk):
     zdjecie = get_object_or_404(Galeria, pk=pk)
+    form = GaleriaForm(request.POST, request.FILES, instance=zdjecie)
     if request.method == "POST":
-        form = GaleriaForm(request.POST, request.FILES, instance=zdjecie)
         if form.is_valid():
-            zdjecie = form.save(commit=False)
-            zdjecie.IdAdmin = request.user
-            zdjecie.published_date = timezone.now()
-            zdjecie.save()
+            #zdjecie = form.save(commit=False)
+            #zdjecie.IdAdmin = request.user
+            #zdjecie.published_date = timezone.now()
+            #zdjecie.save()
+            artykul = form.zapisz(form,request,timezone)
             return redirect(GaleriaV)
         else:
             form = GaleriaForm(instance=zdjecie)
-        return render(request, 'OdraRiverCup/Galeria_new.html', {'form': form})
+    return render(request, 'OdraRiverCup/Galeria_new.html', {'form': form})
 
 
 @login_required
