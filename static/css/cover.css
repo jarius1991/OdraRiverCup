@@ -74,7 +74,13 @@ body {
 .inner {
   padding: 30px;
 }
-
+.language-picker{
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 18px;
+    color: #5CB85C;
+}
 
 /*
  * Header
@@ -132,7 +138,7 @@ body {
 
 
 .cover {
-  padding: 100px 10px;
+  padding: 10px 10px;
 }
 .cover .btn-lg {
   padding: 10px 20px;
@@ -161,14 +167,7 @@ body {
 
 @media (min-width: 768px) {
   /* Pull out the header and footer */
-  .masthead {
-    position: fixed;
-    top: 0;
-  }
-  .mastfoot {
-    position: fixed;
-    bottom: 0;
-  }
+  
   /* Start the vertical centering */
   .site-wrapper-inner {
     vertical-align: middle;

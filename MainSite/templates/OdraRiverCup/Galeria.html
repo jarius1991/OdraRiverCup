@@ -17,7 +17,7 @@
             <a class="btn btn-default" href="{% url 'Galeria_edit' gal.IdZdjecia %}"><span class="glyphicon glyphicon-cog"></span></a>
              {% endif %}
            <h1>{{gal.IdZawody}}</h1>
-           <img src="{{gal.Zdjecie.url}}" style="width:756;height:512px;">
+            <img class="img-responsive" src="{{gal.Zdjecie.url}}" alt="Chania"> 
     	{% endif %} 
   {% endfor %}
 
