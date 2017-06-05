@@ -29,7 +29,6 @@ margin-top: 100px;
 }
 
 textarea{
-padding 10px;
 }
 /*
  * Base structure
@@ -39,7 +38,7 @@ html,
 body {
   height: 100%;
   background-color: #cee1fb;
-  backgrount: url(media/canoe.jpg) no-repeat center center fixed;
+  background: url(media/canoe.jpg) no-repeat center center fixed;
   -webkid-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -110,7 +109,6 @@ body {
 }
 .masthead-nav > li > a:hover,
 .masthead-nav > li > a:focus {
-  background-color: solid;
   border-bottom-color: #a9a9a9;
   border-bottom-color: rgba(255,255,255,.25);
 }
@@ -162,7 +160,6 @@ body {
 
 .post_contain{
     margin-top: 60px;
-    padding=0px;
 }
 
 @media (min-width: 768px) {

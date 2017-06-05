@@ -4,7 +4,6 @@
 <head>Galeria</head>
 {% block content %}
 
-<body>
     <div class="page-header" style="margin-top:5px;">
         <h1>Logowanie</h1>
     </div>
@@ -31,7 +30,6 @@
 
 
 
-    <div class="thumbnail formt" id="logowanie">
         {% if registered %}
         <strong>Dzięki za rejestrację!</strong>
         <a href="/logowanie/">Przejdź do logowania</a><br /> {% else %}
@@ -67,8 +65,6 @@
             </div>
         </form>
         {% endif %}
-    </div>
-</body>
 {% endblock %}
 
 

@@ -64,8 +64,8 @@ def Artykul_new(request):
             # artykul.save()
             artykul = form.zapisz(form,request, timezone)
             return redirect('Artykul_detail', pk=artykul.pk)
-        else:
-            form = ArtykulForm()
+    else:
+        form = ArtykulForm()
 
     return render(request, "OdraRiverCup/Artykul_new.html", {'form': form})
 
@@ -246,6 +246,7 @@ def login(request):
 
 
 def process_login(request):
+    print(request.POST)
     username = request.POST.get('username', '')
     password = request.POST.get('password', '')
     user = auth.authenticate(username=username, password=password)
