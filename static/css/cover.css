@@ -78,7 +78,6 @@ body {
     top: 8px;
     right: 16px;
     font-size: 18px;
-    color: #5CB85C;
 }
 
 /*
@@ -88,7 +87,9 @@ body {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-
+.button-container{
+   float:left;
+}
 .masthead-nav > li {
 
   display: inline-block;

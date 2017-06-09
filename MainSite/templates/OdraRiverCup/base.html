@@ -2,9 +2,10 @@
 {% load staticfiles %}
 
 {% get_current_language as LANGUAGE_CODE %}
+<!DOCTYPE html><html lang="pl"><head><meta charset="utf-8">
+
 <!-- Current language: {{ LANGUAGE_CODE }} -->
-<html>
-<head>
+
     <meta charset="utf-8">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
@@ -15,17 +16,17 @@
 <body>
  <div class="site-wrapper">
       <div class="language-picker">
-                      <a href="/en">
+                      <a href="/en"></a>
                     <button ><span class="flag-icon flag-icon-us"></span></button>
                     {% trans "Angielski" %}
-                       </a>
+                       
                     
 
-                     <a href="/pl">
+                     <a href="/pl"></a>
                     <button ><span class="flag-icon flag-icon-pl"></span></button>
                       
                     {% trans "Polski" %}
-                       </a></div>
+                       </div>
                     
       <div class="site-wrapper-inner">
 
@@ -101,11 +102,7 @@
            {% endblock %}
        </div>
 
-          <div class="mastfoot">
-            <div class="inner">
-              <p>Bez stopki</p>
-            </div>
-          </div>
+          
 
         </div>
 
