@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20170617 00:51:04.589" generator="Robot 3.0.2 (Python 2.7.8 on win32)">
+<suite source="H:\last_django_odra\OdraRiverCup\testy.robot" id="s1" name="Testy">
+<kw type="setup" name="Start Django and Open Browser">
+<kw name="Start Django" library="DjangoLibrary">
+<doc>Start the Django server.</doc>
+<msg timestamp="20170617 00:51:09.576" level="INFO">C:\Python27\lib\site-packages\DjangoLibrary\__init__.py:124: UserWarning: The DjangoLibrary 'clear_db' keyword is deprecated. Use the 'manage_flush' keyword instead.
+  "Use the 'manage_flush' keyword instead."</msg>
+<status status="PASS" endtime="20170617 00:51:09.576" starttime="20170617 00:51:04.804"></status>
+</kw>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${SERVER}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20170617 00:51:09.577" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:8000/'</msg>
+<status status="PASS" endtime="20170617 00:51:14.742" starttime="20170617 00:51:09.577"></status>
+</kw>
+<status status="PASS" endtime="20170617 00:51:14.742" starttime="20170617 00:51:04.803"></status>
+</kw>
+<test id="s1-t1" name="Scenario: As a visitor I can visit mainpage">
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${SERVER}</arg>
+</arguments>
+<msg timestamp="20170617 00:51:14.744" level="INFO">Opening url 'http://127.0.0.1:8000/'</msg>
+<status status="PASS" endtime="20170617 00:51:14.814" starttime="20170617 00:51:14.743"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20170617 00:51:15.947" starttime="20170617 00:51:14.815"></status>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>Odra</arg>
+</arguments>
+<msg timestamp="20170617 00:51:15.968" level="INFO">Current page contains text 'Odra'.</msg>
+<status status="PASS" endtime="20170617 00:51:15.968" starttime="20170617 00:51:15.947"></status>
+</kw>
+<status status="PASS" endtime="20170617 00:51:15.968" critical="yes" starttime="20170617 00:51:14.742"></status>
+</test>
+<test id="s1-t2" name="Navbar Links: As a visitor I can visit all pages on website">
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${SERVER}</arg>
+</arguments>
+<msg timestamp="20170617 00:51:15.970" level="INFO">Opening url 'http://127.0.0.1:8000/'</msg>
+<status status="PASS" endtime="20170617 00:51:16.070" starttime="20170617 00:51:15.970"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20170617 00:51:16.075" starttime="20170617 00:51:16.071"></status>
+</kw>
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>/Harmonogram</arg>
+</arguments>
+<msg timestamp="20170617 00:51:16.076" level="INFO">Clicking link '/Harmonogram'.</msg>
+<status status="PASS" endtime="20170617 00:51:16.214" starttime="20170617 00:51:16.076"></status>
+</kw>
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>/Partnerzy</arg>
+</arguments>
+<msg timestamp="20170617 00:51:16.215" level="INFO">Clicking link '/Partnerzy'.</msg>
+<status status="PASS" endtime="20170617 00:51:16.539" starttime="20170617 00:51:16.215"></status>
+</kw>
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>/Kontakt</arg>
+</arguments>
+<msg timestamp="20170617 00:51:16.540" level="INFO">Clicking link '/Kontakt'.</msg>
+<status status="PASS" endtime="20170617 00:51:16.676" starttime="20170617 00:51:16.540"></status>
+</kw>
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>/Galeria</arg>
+</arguments>
+<msg timestamp="20170617 00:51:16.677" level="INFO">Clicking link '/Galeria'.</msg>
+<status status="PASS" endtime="20170617 00:51:16.811" starttime="20170617 00:51:16.677"></status>
+</kw>
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>/Wyniki</arg>
+</arguments>
+<msg timestamp="20170617 00:51:16.812" level="INFO">Clicking link '/Wyniki'.</msg>
+<status status="PASS" endtime="20170617 00:51:16.933" starttime="20170617 00:51:16.811"></status>
+</kw>
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>/</arg>
+</arguments>
+<msg timestamp="20170617 00:51:16.936" level="INFO">Clicking link '/'.</msg>
+<status status="PASS" endtime="20170617 00:51:17.054" starttime="20170617 00:51:16.935"></status>
+</kw>
+<status status="PASS" endtime="20170617 00:51:17.055" critical="yes" starttime="20170617 00:51:15.969"></status>
+</test>
+<test id="s1-t3" name="Contact Fail: As a visitor I can't send message if email or message is invalid">
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${SERVER}Kontakt</arg>
+</arguments>
+<msg timestamp="20170617 00:51:17.057" level="INFO">Opening url 'http://127.0.0.1:8000/Kontakt'</msg>
+<status status="PASS" endtime="20170617 00:51:17.111" starttime="20170617 00:51:17.057"></status>
+</kw>
+<kw name="Cannot Send Message">
+<arguments>
+<arg>${EMPTY}</arg>
+<arg>${EMPTY}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=nav-input</arg>
+</arguments>
+<status status="PASS" endtime="20170617 00:51:17.137" starttime="20170617 00:51:17.112"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=nav-input</arg>
+<arg>${email}</arg>
+</arguments>
+<msg timestamp="20170617 00:51:17.137" level="INFO">Typing text '' into text field 'id=nav-input'</msg>
+<status status="PASS" endtime="20170617 00:51:17.205" starttime="20170617 00:51:17.137"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>comment</arg>
+<arg>${message}</arg>
+</arguments>
+<msg timestamp="20170617 00:51:17.206" level="INFO">Typing text '' into text field 'comment'</msg>
+<status status="PASS" endtime="20170617 00:51:17.290" starttime="20170617 00:51:17.206"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=nav-input</arg>
+</arguments>
+<msg timestamp="20170617 00:51:17.290" level="INFO">Clicking element 'id=nav-input'.</msg>
+<status status="PASS" endtime="20170617 00:51:17.336" starttime="20170617 00:51:17.290"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=comment</arg>
+</arguments>
+<msg timestamp="20170617 00:51:17.336" level="INFO">Clicking element 'id=comment'.</msg>
+<status status="PASS" endtime="20170617 00:51:17.397" starttime="20170617 00:51:17.336"></status>
+</kw>
+<kw name="Element Should Be Disabled" library="Selenium2Library">
+<doc>Verifies that element identified with `locator` is disabled.</doc>
+<arguments>
+<arg>id=form_button</arg>
+</arguments>
+<status status="PASS" endtime="20170617 00:51:17.432" starttime="20170617 00:51:17.397"></status>
+</kw>
+<status status="PASS" endtime="20170617 00:51:17.432" starttime="20170617 00:51:17.112"></status>
+</kw>
+<kw name="Cannot Send Message">
+<arguments>
+<arg>${CORRECTEMAIL}</arg>
+<arg>${EMPTY}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=nav-input</arg>
+</arguments>
+<status status="PASS" endtime="20170617 00:51:17.442" starttime="20170617 00:51:17.434"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=nav-input</arg>
+<arg>${email}</arg>
+</arguments>
+<msg timestamp="20170617 00:51:17.443" level="INFO">Typing text 'krzysztow.jerzyna@szczecinianin.pl' into text field 'id=nav-input'</msg>
+<status status="PASS" endtime="20170617 00:51:17.557" starttime="20170617 00:51:17.442"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>comment</arg>
+<arg>${message}</arg>
+</arguments>
+<msg timestamp="20170617 00:51:17.558" level="INFO">Typing text '' into text field 'comment'</msg>
+<status status="PASS" endtime="20170617 00:51:17.586" starttime="20170617 00:51:17.557"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=nav-input</arg>
+</arguments>
+<msg timestamp="20170617 00:51:17.587" level="INFO">Clicking element 'id=nav-input'.</msg>
+<status status="PASS" endtime="20170617 00:51:17.620" starttime="20170617 00:51:17.586"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=comment</arg>
+</arguments>
+<msg timestamp="20170617 00:51:17.621" level="INFO">Clicking element 'id=comment'.</msg>
+<status status="PASS" endtime="20170617 00:51:17.653" starttime="20170617 00:51:17.620"></status>
+</kw>
+<kw name="Element Should Be Disabled" library="Selenium2Library">
+<doc>Verifies that element identified with `locator` is disabled.</doc>
+<arguments>
+<arg>id=form_button</arg>
+</arguments>
+<status status="PASS" endtime="20170617 00:51:17.664" starttime="20170617 00:51:17.653"></status>
+</kw>
+<status status="PASS" endtime="20170617 00:51:17.664" starttime="20170617 00:51:17.433"></status>
+</kw>
+<kw name="Cannot Send Message">
+<arguments>
+<arg>${EMPTY}</arg>
+<arg>${CORRECTMESSAGE}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=nav-input</arg>
+</arguments>
+<status status="PASS" endtime="20170617 00:51:17.674" starttime="20170617 00:51:17.665"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=nav-input</arg>
+<arg>${email}</arg>
+</arguments>
+<msg timestamp="20170617 00:51:17.675" level="INFO">Typing text '' into text field 'id=nav-input'</msg>
+<status status="PASS" endtime="20170617 00:51:17.707" starttime="20170617 00:51:17.674"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>comment</arg>
+<arg>${message}</arg>
+</arguments>
+<msg timestamp="20170617 00:51:17.708" level="INFO">Typing text 'Dajcie mi wiosłować!' into text field 'comment'</msg>
+<status status="PASS" endtime="20170617 00:51:17.777" starttime="20170617 00:51:17.707"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=nav-input</arg>
+</arguments>
+<msg timestamp="20170617 00:51:17.777" level="INFO">Clicking element 'id=nav-input'.</msg>
+<status status="PASS" endtime="20170617 00:51:17.803" starttime="20170617 00:51:17.777"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=comment</arg>
+</arguments>
+<msg timestamp="20170617 00:51:17.804" level="INFO">Clicking element 'id=comment'.</msg>
+<status status="PASS" endtime="20170617 00:51:17.832" starttime="20170617 00:51:17.804"></status>
+</kw>
+<kw name="Element Should Be Disabled" library="Selenium2Library">
+<doc>Verifies that element identified with `locator` is disabled.</doc>
+<arguments>
+<arg>id=form_button</arg>
+</arguments>
+<status status="PASS" endtime="20170617 00:51:17.848" starttime="20170617 00:51:17.832"></status>
+</kw>
+<status status="PASS" endtime="20170617 00:51:17.849" starttime="20170617 00:51:17.665"></status>
+</kw>
+<kw name="Cannot Send Message">
+<arguments>
+<arg>${CORRECTEMAIL}</arg>
+<arg>${WRONGMESSAGE}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=nav-input</arg>
+</arguments>
+<status status="PASS" endtime="20170617 00:51:17.859" starttime="20170617 00:51:17.850"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=nav-input</arg>
+<arg>${email}</arg>
+</arguments>
+<msg timestamp="20170617 00:51:17.860" level="INFO">Typing text 'krzysztow.jerzyna@szczecinianin.pl' into text field 'id=nav-input'</msg>
+<status status="PASS" endtime="20170617 00:51:17.964" starttime="20170617 00:51:17.859"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>comment</arg>
+<arg>${message}</arg>
+</arguments>
+<msg timestamp="20170617 00:51:17.964" level="INFO">Typing text 'Enter text here...' into text field 'comment'</msg>
+<status status="PASS" endtime="20170617 00:51:18.043" starttime="20170617 00:51:17.964"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=nav-input</arg>
+</arguments>
+<msg timestamp="20170617 00:51:18.044" level="INFO">Clicking element 'id=nav-input'.</msg>
+<status status="PASS" endtime="20170617 00:51:18.076" starttime="20170617 00:51:18.043"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=comment</arg>
+</arguments>
+<msg timestamp="20170617 00:51:18.077" level="INFO">Clicking element 'id=comment'.</msg>
+<status status="PASS" endtime="20170617 00:51:18.112" starttime="20170617 00:51:18.077"></status>
+</kw>
+<kw name="Element Should Be Disabled" library="Selenium2Library">
+<doc>Verifies that element identified with `locator` is disabled.</doc>
+<arguments>
+<arg>id=form_button</arg>
+</arguments>
+<status status="PASS" endtime="20170617 00:51:18.130" starttime="20170617 00:51:18.112"></status>
+</kw>
+<status status="PASS" endtime="20170617 00:51:18.131" starttime="20170617 00:51:17.849"></status>
+</kw>
+<kw name="Cannot Send Message">
+<arguments>
+<arg>${WRONGEMAIL}</arg>
+<arg>${CORRECTMESSAGE}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=nav-input</arg>
+</arguments>
+<status status="PASS" endtime="20170617 00:51:18.141" starttime="20170617 00:51:18.131"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=nav-input</arg>
+<arg>${email}</arg>
+</arguments>
+<msg timestamp="20170617 00:51:18.142" level="INFO">Typing text 'krzysztow.jerzyna@szczecinianin' into text field 'id=nav-input'</msg>
+<status status="PASS" endtime="20170617 00:51:18.259" starttime="20170617 00:51:18.142"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>comment</arg>
+<arg>${message}</arg>
+</arguments>
+<msg timestamp="20170617 00:51:18.260" level="INFO">Typing text 'Dajcie mi wiosłować!' into text field 'comment'</msg>
+<status status="PASS" endtime="20170617 00:51:18.341" starttime="20170617 00:51:18.260"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=nav-input</arg>
+</arguments>
+<msg timestamp="20170617 00:51:18.341" level="INFO">Clicking element 'id=nav-input'.</msg>
+<status status="PASS" endtime="20170617 00:51:18.368" starttime="20170617 00:51:18.341"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=comment</arg>
+</arguments>
+<msg timestamp="20170617 00:51:18.369" level="INFO">Clicking element 'id=comment'.</msg>
+<status status="PASS" endtime="20170617 00:51:18.402" starttime="20170617 00:51:18.368"></status>
+</kw>
+<kw name="Element Should Be Disabled" library="Selenium2Library">
+<doc>Verifies that element identified with `locator` is disabled.</doc>
+<arguments>
+<arg>id=form_button</arg>
+</arguments>
+<status status="PASS" endtime="20170617 00:51:18.416" starttime="20170617 00:51:18.402"></status>
+</kw>
+<status status="PASS" endtime="20170617 00:51:18.416" starttime="20170617 00:51:18.131"></status>
+</kw>
+<status status="PASS" endtime="20170617 00:51:18.417" critical="yes" starttime="20170617 00:51:17.056"></status>
+</test>
+<test id="s1-t4" name="Contact Succeed: As a visitor I can send message if email and message is valid">
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${SERVER}</arg>
+</arguments>
+<msg timestamp="20170617 00:51:18.420" level="INFO">Opening url 'http://127.0.0.1:8000/'</msg>
+<status status="PASS" endtime="20170617 00:51:18.475" starttime="20170617 00:51:18.420"></status>
+</kw>
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>/Kontakt</arg>
+</arguments>
+<msg timestamp="20170617 00:51:18.476" level="INFO">Clicking link '/Kontakt'.</msg>
+<status status="PASS" endtime="20170617 00:51:18.587" starttime="20170617 00:51:18.476"></status>
+</kw>
+<kw name="Send Message">
+<arguments>
+<arg>${CORRECTEMAIL}</arg>
+<arg>${CORRECTMESSAGE}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=nav-input</arg>
+</arguments>
+<status status="PASS" endtime="20170617 00:51:18.598" starttime="20170617 00:51:18.588"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=nav-input</arg>
+<arg>${email}</arg>
+</arguments>
+<msg timestamp="20170617 00:51:18.599" level="INFO">Typing text 'krzysztow.jerzyna@szczecinianin.pl' into text field 'id=nav-input'</msg>
+<status status="PASS" endtime="20170617 00:51:18.724" starttime="20170617 00:51:18.598"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>comment</arg>
+<arg>${message}</arg>
+</arguments>
+<msg timestamp="20170617 00:51:18.724" level="INFO">Typing text 'Dajcie mi wiosłować!' into text field 'comment'</msg>
+<status status="PASS" endtime="20170617 00:51:18.828" starttime="20170617 00:51:18.724"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=nav-input</arg>
+</arguments>
+<msg timestamp="20170617 00:51:18.829" level="INFO">Clicking element 'id=nav-input'.</msg>
+<status status="PASS" endtime="20170617 00:51:18.875" starttime="20170617 00:51:18.828"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=comment</arg>
+</arguments>
+<msg timestamp="20170617 00:51:18.875" level="INFO">Clicking element 'id=comment'.</msg>
+<status status="PASS" endtime="20170617 00:51:18.929" starttime="20170617 00:51:18.875"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=nav-input</arg>
+</arguments>
+<status status="PASS" endtime="20170617 00:51:18.940" starttime="20170617 00:51:18.929"></status>
+</kw>
+<kw name="Element Should Be Enabled" library="Selenium2Library">
+<doc>Verifies that element identified with `locator` is enabled.</doc>
+<arguments>
+<arg>id=form_button</arg>
+</arguments>
+<status status="PASS" endtime="20170617 00:51:18.967" starttime="20170617 00:51:18.940"></status>
+</kw>
+<status status="PASS" endtime="20170617 00:51:18.968" starttime="20170617 00:51:18.588"></status>
+</kw>
+<status status="PASS" endtime="20170617 00:51:18.969" critical="yes" starttime="20170617 00:51:18.419"></status>
+</test>
+<test id="s1-t5" name="Translate Succeed:">
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=polisz</arg>
+</arguments>
+<status status="PASS" endtime="20170617 00:51:18.990" starttime="20170617 00:51:18.971"></status>
+</kw>
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>id=polisz</arg>
+</arguments>
+<msg timestamp="20170617 00:51:18.991" level="INFO">Clicking link 'id=polisz'.</msg>
+<status status="PASS" endtime="20170617 00:51:19.267" starttime="20170617 00:51:18.991"></status>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>Aktualności</arg>
+</arguments>
+<msg timestamp="20170617 00:51:19.292" level="INFO">Current page contains text 'Aktualności'.</msg>
+<status status="PASS" endtime="20170617 00:51:19.292" starttime="20170617 00:51:19.268"></status>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>Harmonogram</arg>
+</arguments>
+<msg timestamp="20170617 00:51:19.311" level="INFO">Current page contains text 'Harmonogram'.</msg>
+<status status="PASS" endtime="20170617 00:51:19.312" starttime="20170617 00:51:19.293"></status>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>Partnerzy</arg>
+</arguments>
+<msg timestamp="20170617 00:51:19.330" level="INFO">Current page contains text 'Partnerzy'.</msg>
+<status status="PASS" endtime="20170617 00:51:19.330" starttime="20170617 00:51:19.312"></status>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>Kontakt</arg>
+</arguments>
+<msg timestamp="20170617 00:51:19.348" level="INFO">Current page contains text 'Kontakt'.</msg>
+<status status="PASS" endtime="20170617 00:51:19.348" starttime="20170617 00:51:19.331"></status>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>Galeria</arg>
+</arguments>
+<msg timestamp="20170617 00:51:19.366" level="INFO">Current page contains text 'Galeria'.</msg>
+<status status="PASS" endtime="20170617 00:51:19.366" starttime="20170617 00:51:19.348"></status>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>Wyniki</arg>
+</arguments>
+<msg timestamp="20170617 00:51:19.385" level="INFO">Current page contains text 'Wyniki'.</msg>
+<status status="PASS" endtime="20170617 00:51:19.385" starttime="20170617 00:51:19.367"></status>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>Zaloguj</arg>
+</arguments>
+<msg timestamp="20170617 00:51:19.404" level="INFO">Current page contains text 'Zaloguj'.</msg>
+<status status="PASS" endtime="20170617 00:51:19.405" starttime="20170617 00:51:19.386"></status>
+</kw>
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>id=englisz</arg>
+</arguments>
+<msg timestamp="20170617 00:51:19.406" level="INFO">Clicking link 'id=englisz'.</msg>
+<status status="PASS" endtime="20170617 00:51:19.710" starttime="20170617 00:51:19.406"></status>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>News</arg>
+</arguments>
+<msg timestamp="20170617 00:51:19.732" level="INFO">Current page contains text 'News'.</msg>
+<status status="PASS" endtime="20170617 00:51:19.732" starttime="20170617 00:51:19.711"></status>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>Schedule</arg>
+</arguments>
+<msg timestamp="20170617 00:51:19.755" level="INFO">Current page contains text 'Schedule'.</msg>
+<status status="PASS" endtime="20170617 00:51:19.755" starttime="20170617 00:51:19.733"></status>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>Partners</arg>
+</arguments>
+<msg timestamp="20170617 00:51:19.774" level="INFO">Current page contains text 'Partners'.</msg>
+<status status="PASS" endtime="20170617 00:51:19.774" starttime="20170617 00:51:19.756"></status>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>Contact</arg>
+</arguments>
+<msg timestamp="20170617 00:51:19.792" level="INFO">Current page contains text 'Contact'.</msg>
+<status status="PASS" endtime="20170617 00:51:19.792" starttime="20170617 00:51:19.775"></status>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>Gallery</arg>
+</arguments>
+<msg timestamp="20170617 00:51:19.809" level="INFO">Current page contains text 'Gallery'.</msg>
+<status status="PASS" endtime="20170617 00:51:19.809" starttime="20170617 00:51:19.792"></status>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>Scores</arg>
+</arguments>
+<msg timestamp="20170617 00:51:19.827" level="INFO">Current page contains text 'Scores'.</msg>
+<status status="PASS" endtime="20170617 00:51:19.827" starttime="20170617 00:51:19.810"></status>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>Login</arg>
+</arguments>
+<msg timestamp="20170617 00:51:19.844" level="INFO">Current page contains text 'Login'.</msg>
+<status status="PASS" endtime="20170617 00:51:19.844" starttime="20170617 00:51:19.827"></status>
+</kw>
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>/</arg>
+</arguments>
+<msg timestamp="20170617 00:51:19.845" level="INFO">Clicking link '/'.</msg>
+<status status="PASS" endtime="20170617 00:51:19.964" starttime="20170617 00:51:19.845"></status>
+</kw>
+<status status="PASS" endtime="20170617 00:51:19.965" critical="yes" starttime="20170617 00:51:18.970"></status>
+</test>
+<kw type="teardown" name="Stop Django and Close Browser">
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20170617 00:51:23.004" starttime="20170617 00:51:19.967"></status>
+</kw>
+<status status="PASS" endtime="20170617 00:51:23.004" starttime="20170617 00:51:19.967"></status>
+</kw>
+<status status="PASS" endtime="20170617 00:51:23.004" starttime="20170617 00:51:04.592"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="5">Critical Tests</stat>
+<stat fail="0" pass="5">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Testy" pass="5">Testy</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
